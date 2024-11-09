@@ -1,20 +1,28 @@
 ---
 import { Image } from 'astro:assets';
 import HoustonOmg from '../assets/houston_omg.png';
+import config from "virtual:starlight-cooler-credit-config";
+import getCreditText from '../libs/util';
+
+const translate = (key: string) => Astro.locals.t(key);
 ---
 
 <aside class="not-content">
-	<div>
-		<a href="https://starlight.astro.build/">
-			<h2>{Astro.locals.t('starlightCoolerConfig.starlight.title')}</h2>
-		</a>
-		<p>
-			{Astro.locals.t('starlightCoolerConfig.starlight.description')}<b>→</b>
-		</p>
-	</div>
-	<div>
-		<Image src={HoustonOmg} alt="" width="180" />
-	</div>
+	<a href={getCreditText(config, "href", translate)}>
+		<h2>{getCreditText(config, "title", translate)}</h2>
+		<div>
+				<div>
+					{getCreditText(config, "description", translate) && 
+					<p>
+						{getCreditText(config, "description", translate)}<b>&nbsp;→</b> 
+					</p>
+			}
+				</div>
+			<div>
+				<Image src={HoustonOmg} alt="" width="180" />
+			</div>
+		</div>
+	</a>
 </aside>
 
 <style>
@@ -24,7 +32,6 @@ import HoustonOmg from '../assets/houston_omg.png';
 		background-color: var(--sl-color-gray-6);
 		padding: 1rem;
 		border-radius: 0.5rem;
-		display: flex;
 		border: 1px solid var(--sl-color-text-accent);
 		box-shadow: var(--sl-shadow-md);
 		overflow-y: hidden;
@@ -35,6 +42,11 @@ import HoustonOmg from '../assets/houston_omg.png';
 		inset: 0;
 		z-index: 1;
 	}
+	aside > a > div {
+		display: flex;
+        justify-content: space-between;
+		gap: 1rem;
+	}
 	aside h2 {
 		font-size: var(--sl-text-lg) !important;
 	}
@@ -42,7 +54,7 @@ import HoustonOmg from '../assets/houston_omg.png';
 		font-size: var(--sl-text-sm) !important;
 		line-height: normal;
 	}
-	aside > div:last-child {
+	aside > a > div > div:last-child {
 		display: flex;
 		align-items: end;
 	}

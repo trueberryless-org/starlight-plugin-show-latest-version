@@ -1,8 +1,10 @@
 import type { StarlightPlugin, StarlightUserConfig } from "@astrojs/starlight/types";
 import type { AstroIntegrationLogger } from "astro";
 import { Translations } from "./translations";
-import { validateConfig, type StarlightCoolerCreditUserConfig } from "./libs/config";
+import { type StarlightCoolerCreditConfig, validateConfig, type StarlightCoolerCreditUserConfig } from "./libs/config";
 import { vitePluginStarlightCoolerCreditConfig } from "./libs/vite";
+
+export type { StarlightCoolerCreditConfig, StarlightCoolerCreditUserConfig };
 
 export default function starlightCoolerCredit(userConfig?: StarlightCoolerCreditUserConfig): StarlightPlugin {
     const config = validateConfig(userConfig);

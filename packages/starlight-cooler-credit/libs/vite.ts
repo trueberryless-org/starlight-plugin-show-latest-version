@@ -3,12 +3,12 @@ import type { ViteUserConfig } from "astro";
 import type { StarlightCoolerCreditConfig } from "..";
 
 export function vitePluginStarlightCoolerCreditConfig(config: StarlightCoolerCreditConfig): VitePlugin {
-    const moduleId = "virtual:starlight-cooler-config-config";
+    const moduleId = "virtual:starlight-cooler-credit-config";
     const resolvedModuleId = `\0${moduleId}`;
     const moduleContent = `export default ${JSON.stringify(config)}`;
 
     return {
-        name: "vite-plugin-starlight-cooler-config",
+        name: "vite-plugin-starlight-cooler-credit",
         load(id) {
             return id === resolvedModuleId ? moduleContent : undefined;
         },

@@ -9,7 +9,7 @@ const configSchema = z
                 z.object({
                     title: z.string(),
                     href: z.string().url(),
-                    description: z.string(),
+                    description: z.string().optional(),
                 }),
             ])
             .default("Starlight"),
