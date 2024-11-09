@@ -7,9 +7,9 @@ const configSchema = z
             .union([
                 z.enum(["Astro", "Starlight"]),
                 z.object({
-                    title: z.string(),
+                    title: z.union([z.string(), z.record(z.string())]),
                     href: z.string().url(),
-                    description: z.string().optional(),
+                    description: z.union([z.string(), z.record(z.string())]).optional(),
                 }),
             ])
             .default("Starlight"),

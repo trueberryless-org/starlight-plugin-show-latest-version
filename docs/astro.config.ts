@@ -20,7 +20,17 @@ export default defineConfig({
             },
             plugins: [
                 starlightCoolerCredit({
-                    credit: "Starlight",
+                    credit: {
+                        title: {
+                            en: "Built with Astro",
+                            de: "Erstellt mit Astro",
+                        },
+                        href: "https://docs.astro.build/",
+                        description: {
+                            en: "Want to build your own static website?",
+                            de: "Willst du deine eigene statische Website erstellen?",
+                        },
+                    },
                 }),
             ],
             sidebar: [

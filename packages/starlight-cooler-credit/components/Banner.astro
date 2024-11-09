@@ -5,16 +5,19 @@ import config from "virtual:starlight-cooler-credit-config";
 import getCreditText from '../libs/util';
 
 const translate = (key: string) => Astro.locals.t(key);
+
+const locale = Astro.currentLocale
+console.log(locale)
 ---
 
 <aside class="not-content">
-	<a href={getCreditText(config, "href", translate)}>
-		<h2>{getCreditText(config, "title", translate)}</h2>
+	<a href={getCreditText(config, "href", translate, locale)}>
+		<h2>{getCreditText(config, "title", translate, locale)}</h2>
 		<div>
 				<div>
-					{getCreditText(config, "description", translate) && 
+					{getCreditText(config, "description", translate, locale) && 
 					<p>
-						{getCreditText(config, "description", translate)}<b>&nbsp;→</b> 
+						{getCreditText(config, "description", translate, locale)}<b>&nbsp;→</b> 
 					</p>
 			}
 				</div>
