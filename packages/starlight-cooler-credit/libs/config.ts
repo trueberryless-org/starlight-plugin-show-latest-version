@@ -16,7 +16,7 @@ const configSchema = z
     })
     .default({});
 
-export function validateConfig(userConfig: unknown): StarlightCoolerConfigConfig {
+export function validateConfig(userConfig: unknown): StarlightCoolerCreditConfig {
     const config = configSchema.safeParse(userConfig);
 
     if (!config.success) {
@@ -37,5 +37,5 @@ export function validateConfig(userConfig: unknown): StarlightCoolerConfigConfig
     return config.data;
 }
 
-export type StarlightCoolerConfigUserConfig = z.input<typeof configSchema>;
-export type StarlightCoolerConfigConfig = z.output<typeof configSchema>;
+export type StarlightCoolerCreditUserConfig = z.input<typeof configSchema>;
+export type StarlightCoolerCreditConfig = z.output<typeof configSchema>;

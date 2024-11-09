@@ -1,8 +1,10 @@
 import type { StarlightPlugin, StarlightUserConfig } from "@astrojs/starlight/types";
 import type { AstroIntegrationLogger } from "astro";
 import { Translations } from "./translations";
+import { validateConfig, type StarlightCoolerCreditUserConfig } from "./libs/config";
+import { vitePluginStarlightCoolerCreditConfig } from "./libs/vite";
 
-export default function starlightCoolerCredit(): StarlightPlugin {
+export default function starlightCoolerCredit(userConfig?: StarlightCoolerCreditUserConfig): StarlightPlugin {
     const config = validateConfig(userConfig);
 
     return {
@@ -35,15 +37,7 @@ export default function starlightCoolerCredit(): StarlightPlugin {
                         "astro:config:setup": ({ updateConfig }) => {
                             updateConfig({
                                 vite: {
-                                    plugins: [
-                                        vitePluginStarlightCoolerCreditConfig(config, {
-                                            description: starlightConfig.description,
-                                            site: astroConfig.site,
-                                            title: starlightConfig.title,
-                                            titleDelimiter: starlightConfig.titleDelimiter,
-                                            trailingSlash: astroConfig.trailingSlash,
-                                        }),
-                                    ],
+                                    plugins: [vitePluginStarlightCoolerCreditConfig(config)],
                                 },
                             });
                         },
@@ -62,13 +56,13 @@ function overrideStarlightComponent(
     if (components?.[component]) {
         logger.warn(`It looks like you already have a \`${component}\` component override in your Starlight configuration.`);
         logger.warn(
-            `To use \`starlight-blog\`, either remove your override or update it to render the content from \`starlight-blog/overrides/${component}.astro\`.`
+            `To use \`starlight-cooler-credit\`, either remove your override or update it to render the content from \`starlight-cooler-credit/overrides/${component}.astro\`.`
         );
 
         return {};
     }
 
     return {
-        [component]: `starlight-blog/overrides/${component}.astro`,
+        [component]: `starlight-cooler-credit/overrides/${component}.astro`,
     };
 }

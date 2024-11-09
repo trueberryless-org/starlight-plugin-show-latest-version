@@ -1,31 +1,33 @@
 {
-  "name": "starlight-cooler-credit",
-  "version": "0.0.1",
-  "license": "MIT",
-  "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
-  "author": "trueberryless-org",
-  "type": "module",
-  "exports": {
-    ".": "./index.ts"
-  },
-  "devDependencies": {
-    "@astrojs/starlight": "^0.29.0",
-    "astro": "^4.16.10"
-  },
-  "peerDependencies": {
-    "@astrojs/starlight": ">=0.29"
-  },
-  "engines": {
-    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "homepage": "https://github.com/trueberryless-org/starlight-cooler-credit",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git",
-    "directory": "packages/starlight-cooler-credit"
-  },
-  "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues"
+    "name": "starlight-cooler-credit",
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
+    "author": "trueberryless-org",
+    "type": "module",
+    "exports": {
+        ".": "./index.ts",
+        "./overrides/PageSidebar.astro": "./overrides/PageSidebar.astro",
+        "./package.json": "./package.json"
+    },
+    "devDependencies": {
+        "@astrojs/starlight": "^0.29.0",
+        "astro": "^4.16.10"
+    },
+    "peerDependencies": {
+        "@astrojs/starlight": ">=0.29"
+    },
+    "engines": {
+        "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "homepage": "https://github.com/trueberryless-org/starlight-cooler-credit",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git",
+        "directory": "packages/starlight-cooler-credit"
+    },
+    "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues"
 }
