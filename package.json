@@ -1,19 +1,19 @@
 {
-  "name": "starlight-cooler-credit-monorepo",
-  "version": "0.0.1",
-  "license": "MIT",
-  "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
-  "author": "trueberryless-org",
-  "type": "module",
-  "engines": {
-    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
-  },
-  "packageManager": "pnpm@9.6.0",
-  "private": true,
-  "homepage": "https://github.com/trueberryless-org/starlight-cooler-credit",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git"
-  },
-  "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues"
+    "name": "starlight-cooler-credit-monorepo",
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
+    "author": "trueberryless-org",
+    "type": "module",
+    "engines": {
+        "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+    },
+    "packageManager": "pnpm@9.6.0",
+    "private": true,
+    "homepage": "https://github.com/trueberryless-org/starlight-cooler-credit",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git"
+    },
+    "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues"
 }
