@@ -11,58 +11,60 @@ If you don't have one yet, you can follow the ["Getting Started"](https://starli
 
 ## Installation
 
-import { Steps, Tabs, TabItem } from '@astrojs/starlight/components'
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 
 <Steps>
 
 1. `starlight-cooler-credit` is a Starlight [plugin](https://starlight.astro.build/reference/plugins/). Install it by running the following command in your terminal:
 
-   <Tabs syncKey="pkg">
+    <Tabs syncKey="pkg">
 
-   <TabItem label="npm">
+    <TabItem label="npm">
 
-   ```sh
-   npm install starlight-cooler-credit
-   ```
+    ```sh
+    npm install starlight-cooler-credit
+    ```
 
-   </TabItem>
+    </TabItem>
 
-   <TabItem label="pnpm">
+    <TabItem label="pnpm">
 
-   ```sh
-   pnpm add starlight-cooler-credit
-   ```
+    ```sh
+    pnpm add starlight-cooler-credit
+    ```
 
-   </TabItem>
+    </TabItem>
 
-   <TabItem label="Yarn">
+    <TabItem label="Yarn">
 
-   ```sh
-   yarn add starlight-cooler-credit
-   ```
+    ```sh
+    yarn add starlight-cooler-credit
+    ```
 
-   </TabItem>
+    </TabItem>
 
-   </Tabs>
+    </Tabs>
 
 2. Configure the plugin in your Starlight [configuration](https://starlight.astro.build/reference/configuration/#plugins) in the `astro.config.mjs` file.
 
-   ```diff lang="js"
-   // astro.config.mjs
-   import starlight from '@astrojs/starlight'
-   import { defineConfig } from 'astro/config'
-   +import starlightCoolerCredit from 'starlight-cooler-credit'
+    ```diff lang="js"
+    // astro.config.mjs
+    import starlight from '@astrojs/starlight'
+    import { defineConfig } from 'astro/config'
+    +import starlightCoolerCredit from 'starlight-cooler-credit'
 
-   export default defineConfig({
-     integrations: [
-       starlight({
-   +      plugins: [starlightCoolerCredit()],
-         title: 'My Docs',
-       }),
-     ],
-   })
-   ```
+    export default defineConfig({
+      integrations: [
+        starlight({
+    +      plugins: [starlightCoolerCredit()],
+          title: 'My Docs',
+        }),
+      ],
+    })
+    ```
 
 3. [Start the development server](https://starlight.astro.build/getting-started/#start-the-development-server) to preview the plugin in action.
 
 </Steps>
+
+The Starlight Cooler Credit plugin behavior can be tweaked using various [configuration options](/configuration).

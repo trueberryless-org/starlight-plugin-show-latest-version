@@ -1,10 +1,21 @@
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
+import starlightLinksValidator from "starlight-links-validator";
 import starlightCoolerCredit from "starlight-cooler-credit";
+import starlightPluginsDocsComponents from "@trueberryless-org/starlight-plugins-docs-components";
 
 export default defineConfig({
     integrations: [
         starlight({
+            title: {
+                en: "Starlight Cooler Credit",
+                de: "Starlight Coolere Anerkennung",
+            },
+            logo: {
+                light: "./src/assets/logo-light.png",
+                dark: "./src/assets/logo-dark.png",
+                replacesTitle: true,
+            },
             editLink: {
                 baseUrl: "https://github.com/trueberryless-org/starlight-cooler-credit/edit/main/docs/",
             },
@@ -19,30 +30,27 @@ export default defineConfig({
                 },
             },
             plugins: [
-                starlightCoolerCredit({
-                    credit: {
-                        title: {
-                            en: "Built with Astro",
-                            de: "Erstellt mit Astro",
-                        },
-                        href: "https://docs.astro.build/",
-                        description: {
-                            en: "Want to build your own static website?",
-                            de: "Willst du deine eigene statische Website erstellen?",
-                        },
+                starlightLinksValidator(),
+                starlightCoolerCredit(),
+                starlightPluginsDocsComponents({
+                    pluginName: "starlight-cooler-credit",
+                    showcaseProps: {
+                        entries: [],
                     },
                 }),
             ],
             sidebar: [
                 {
                     label: "Start Here",
-                    items: [{ slug: "getting-started" }],
+                    translations: {
+                        de: "Loslegen",
+                    },
+                    items: [{ slug: "getting-started" }, { slug: "configuration" }],
                 },
             ],
             social: {
                 github: "https://github.com/trueberryless-org/starlight-cooler-credit",
             },
-            title: "starlight-cooler-credit",
         }),
     ],
 });

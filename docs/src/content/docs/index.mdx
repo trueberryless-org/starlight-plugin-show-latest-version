@@ -1,30 +1,31 @@
 ---
-title: starlight-cooler-credit
+title: Starlight Cooler Credit
 description: Add a nice credit to Starlight or Astro at the bottom of Table of Contents.
 head:
-  - tag: title
-    content: starlight-cooler-credit
+    - tag: title
+      content: Starlight Cooler Credit
 template: splash
 editUrl: false
 hero:
-  tagline: Add a nice credit to Starlight or Astro at the bottom of Table of Contents.
-  image:
-    file: ../../assets/houston.webp
-  actions:
-    - text: Get Started
-      link: /getting-started/
-      icon: right-arrow
+    tagline: Add a nice credit to Starlight or Astro at the bottom of Table of Contents.
+    image:
+        dark: ../../assets/big-logo-dark.png
+        light: ../../assets/big-logo-light.png
+    actions:
+        - text: Get Started
+          link: /getting-started/
+          icon: right-arrow
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components'
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
 ## Next steps
 
 <CardGrid stagger>
-  <Card title="Install the plugin" icon="puzzle">
-    Check the [getting started guide](/getting-started/) for installation instructions.
-  </Card>
-  <Card title="Configure the plugin" icon="setting">
-    Edit your config in the `astro.config.mjs` file.
-  </Card>
+    <Card title="Install the plugin" icon="puzzle">
+        Check the [getting started guide](/getting-started/) for installation instructions.
+    </Card>
+    <Card title="Configure the plugin" icon="setting">
+        Edit your config in the `astro.config.mjs` file.
+    </Card>
 </CardGrid>

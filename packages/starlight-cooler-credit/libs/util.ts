@@ -27,16 +27,16 @@ export default function getCreditText(
 
         let text: string;
         const lang = getLangFromLocale(locale);
+        const defaultLang = starlightConfig.defaultLocale.lang ?? starlightConfig.defaultLocale.locale;
 
         if (config.credit[type][lang]) {
             text = config.credit[type][lang];
         } else {
-            const defaultLang = starlightConfig.defaultLocale.lang ?? starlightConfig.defaultLocale.locale;
             text = defaultLang ? config.credit[type][defaultLang] ?? "" : "";
         }
 
         if (text.length === 0) {
-            throw new Error("The blog title must have a key for the default language.");
+            throw new Error(`The credit ${type} must have a key for the default language (${defaultLang}).`);
         }
 
         return text;

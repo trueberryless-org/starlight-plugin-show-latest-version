@@ -1,0 +1,85 @@
+---
+title: Configuration
+description: An overview of all the configuration options supported by the Starlight Cooler Credit plugin.
+---
+
+The Starlight Cooler Credit plugin can be configured inside the `astro.config.mjs` configuration file of your project:
+
+```js {11}
+// astro.config.mjs
+import starlight from "@astrojs/starlight";
+import { defineConfig } from "astro/config";
+import starlightCoolerCredit from "starlight-view-modes";
+
+export default defineConfig({
+    integrations: [
+        starlight({
+            plugins: [
+                starlightCoolerCredit({
+                    // Configuration options go here.
+                }),
+            ],
+            title: "My Docs",
+        }),
+    ],
+});
+```
+
+## Configuration options
+
+The Starlight Cooler Credit plugin accepts the following configuration options:
+
+### `credit`
+
+**Type:**
+
+```ts
+"Astro" |
+"Starlight" |
+{
+    title: string | Record<string, string>;
+    href: string;
+    description?: string | Record<string, string> | undefined;
+}
+```
+
+**Default:** `"Starlight"`
+
+The `credit` option allows you to configure the credit text displayed in the table of contents of the Starlight website. There are [two preconfigured options](#preconfigured-options): `"Astro"` and `"Starlight"`. You can also provide a custom object to configure the credit text for each locale.
+
+:::note
+Please note that if you want to provide credit text for each locale, that there has to be at least the locale value of your [`defaultLocale`](https://starlight.astro.build/reference/configuration/#defaultlocale) configured.
+:::
+
+Here is an example for a custom configuration:
+
+```ts
+starlightCoolerCredit({
+    credit: {
+        title: {
+            en: "Built with Astro",
+            de: "Erstellt mit Astro",
+        },
+        href: "https://docs.astro.build/",
+        description: {
+            en: "Want to build your own static website?",
+            de: "Willst du deine eigene statische Website erstellen?",
+        },
+    },
+}),
+```
+
+#### Preconfigured options
+
+The `Astro` and `Starlight` options are preconfigured and can be used without any additional configuration.
+
+import LanguagesList from "../../components/LanguagesList.astro";
+import TranslationsList from "../../components/TranslationsList.astro";
+
+<LanguagesList startsSentence /> translated UI strings are provided out of the box.
+
+To provide translations for additional languages you support — or override the default ones — check the [“Translate Starlight’s UI”](https://starlight.astro.build/guides/i18n/#translate-starlights-ui) guide in the Starlight documentation.
+
+These are the English defaults of the existing strings Starlight Cooler Credit ships with:
+
+<TranslationsList />
