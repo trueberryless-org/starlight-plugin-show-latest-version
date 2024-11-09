@@ -31,9 +31,7 @@ export default defineConfig({
             },
             plugins: [
                 starlightLinksValidator(),
-                starlightCoolerCredit({
-                    credit: "Starlight Blog",
-                }),
+                starlightCoolerCredit(),
                 starlightPluginsDocsComponents({
                     pluginName: "starlight-cooler-credit",
                     showcaseProps: {
