@@ -7,8 +7,10 @@ export const Translations = {
         "starlightCoolerCredit.starlight-blog.description": "Want to build your own Starlight Blog? →",
     },
     de: {
-        "starlightCoolerCredit.starlight.description": "Möchtest du deine eigene Dokumentation erstellen? →",
+        "starlightCoolerCredit.starlight.description": "Willst du deine eigene Dokumentation erstellen? →",
         "starlightCoolerCredit.astro.title": "Erstellt mit Astro",
         "starlightCoolerCredit.astro.description": "Willst du deine eigene statische Website erstellen? →",
+        "starlightCoolerCredit.starlight-blog.title": "Erstellt mit Starlight Blog",
+        "starlightCoolerCredit.starlight-blog.description": "Willst du deine eigene Starlight Blog erstellen? →",
     },
 };

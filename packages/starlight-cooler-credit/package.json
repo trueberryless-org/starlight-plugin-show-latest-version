@@ -1,6 +1,6 @@
 {
     "name": "starlight-cooler-credit",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "MIT",
     "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
     "author": "trueberryless-org",
@@ -29,5 +29,8 @@
         "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git",
         "directory": "packages/starlight-cooler-credit"
     },
-    "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues"
+    "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues",
+    "dependencies": {
+        "change-case": "^5.4.4"
+    }
 }

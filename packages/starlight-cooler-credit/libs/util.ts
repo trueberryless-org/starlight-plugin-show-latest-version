@@ -1,6 +1,7 @@
 import starlightConfig from "virtual:starlight/user-config";
 import type { StarlightCoolerCreditConfig } from "./config";
 import { getLangFromLocale, type Locale } from "./i18n";
+import { kebabCase } from "change-case";
 
 export default function getCreditText(
     config: StarlightCoolerCreditConfig,
@@ -21,7 +22,7 @@ export default function getCreditText(
         if (type == "title" && config.credit === "Starlight") {
             return translate(`builtWithStarlight.label`);
         }
-        return translate(`starlightCoolerCredit.${config.credit.toLowerCase()}.${type}`);
+        return translate(`starlightCoolerCredit.${kebabCase(config.credit)}.${type}`);
     } else {
         if (type === "href") return config.credit.href;
         if (type === "description" && (!config.credit.description || config.credit.description === "")) return undefined;
