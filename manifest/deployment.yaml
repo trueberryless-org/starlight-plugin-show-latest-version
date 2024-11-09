@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: starlight-cooler-credit
-    namespace: starlight-cooler-credit
-    labels:
-        app: starlight-cooler-credit
+  name: starlight-cooler-credit
+  namespace: starlight-cooler-credit
+  labels:
+    app: starlight-cooler-credit
 spec:
-    replicas: 3
-    selector:
-        matchLabels:
-            app: starlight-cooler-credit
-    template:
-        metadata:
-            labels:
-                app: starlight-cooler-credit
-        spec:
-            containers:
-                - name: starlight-cooler-credit
-                  image: "trueberryless/starlight-cooler-credit:main-55e76d42d39359f135af4a4fc4e7404222ed3fb1"
-                  imagePullPolicy: Always
+  replicas: 3
+  selector:
+    matchLabels:
+      app: starlight-cooler-credit
+  template:
+    metadata:
+      labels:
+        app: starlight-cooler-credit
+    spec:
+      containers:
+        - name: starlight-cooler-credit
+          image: "trueberryless/starlight-cooler-credit:main-ce04099dca317efb5e24ff592bce71dc4b31048c"
+          imagePullPolicy: Always
