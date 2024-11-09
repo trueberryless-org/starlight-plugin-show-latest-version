@@ -5,7 +5,7 @@ const configSchema = z
     .object({
         credit: z
             .union([
-                z.enum(["Astro", "Starlight"]),
+                z.enum(["Astro", "Starlight", "Starlight Blog"]),
                 z.object({
                     title: z.union([z.string(), z.record(z.string())]),
                     href: z.string().url(),
