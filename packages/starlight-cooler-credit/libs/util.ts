@@ -12,6 +12,8 @@ export default function getCreditText(
         if (type == "href") {
             if (config.credit === "Astro") {
                 return "https://docs.astro.build/";
+            } else if (config.credit === "Starlight Blog") {
+                return "https://github.com/HiDeoo/starlight-blog";
             } else if (config.credit === "Starlight") {
                 return "https://starlight.astro.build/";
             }
