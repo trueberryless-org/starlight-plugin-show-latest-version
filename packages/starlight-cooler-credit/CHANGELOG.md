@@ -1,5 +1,11 @@
 # starlight-cooler-credit
 
+## 0.1.3
+
+### Patch Changes
+
+- b073fee: Adds Italian language translation
+
 ## 0.1.2
 
 ### Patch Changes
