@@ -1,0 +1,89 @@
+name: Publish Package to npmjs
+on:
+    push:
+        branches: [main]
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: contains(github.event.head_commit.message, 'publish') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Git Semantic Version
+        id: version
+        uses: PaulHatch/semantic-version@v5.4.0
+        with:
+          # If true, the branch will be used to select the maximum version
+          version_from_branch: false
+          # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
+          search_commit_body: true
+          # The output method used to generate list of users, 'csv' or 'json'. Default is 'csv'.
+          user_format_type: json
+
+      - name: Update package.json versions
+        shell: bash
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          files=("docs/package.json" "package.json" "packages/starlight-cooler-credit/package.json")
+          for file in "${files[@]}"; do
+            if [ -f "$file" ]; then
+              jq ".version = \"$VERSION\"" "$file" > tmp.$$.json && mv tmp.$$.json "$file"
+            fi
+          done
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4.0.0
+        with:
+          # If specified, run `pnpm install`
+          run_install: true
+          # File path to the package.json to read "packageManager" configuration
+          package_json_file: docs/package.json
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.1.0
+        with:
+          # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+          node-version: 20.x
+          # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
+          node-version-file: docs/package.json
+          # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.
+          registry-url: https://registry.npmjs.org
+          # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
+          cache: pnpm
+
+      - name: Publish 🚀
+        shell: bash
+        run: pnpm publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
+      - name: Push version changes to main branch
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: release ${{ steps.version.outputs.version }}"
+          branch: ${{ github.event.repository.default_branch }}
+          file_pattern: docs/package.json package.json packages/starlight-cooler-credit/package.json
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.version.outputs.version }}
+          name: starlight-cooler-credit@${{ steps.version.outputs.version }}
+          body: |
+            ## Contributors
+            ${{ steps.version.outputs.users }}
+          draft: false
+          prerelease: false
+                
