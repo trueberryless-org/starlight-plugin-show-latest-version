@@ -15,5 +15,8 @@
         "type": "git",
         "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git"
     },
-    "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues"
+    "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues",
+    "devDependencies": {
+        "@changesets/cli": "^2.27.9"
+    }
 }
