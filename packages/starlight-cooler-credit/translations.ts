@@ -27,4 +27,11 @@ export const Translations = {
         "starlightCoolerCredit.starlight-blog.title": "Starlight Blog로 제작됨",
         "starlightCoolerCredit.starlight-blog.description": "나만의 Starlight 블로그를 만들고 싶나요? →",
     },
+    it: {
+        "starlightCoolerCredit.starlight.description": "Vuoi creare la tua documentazione? →",
+        "starlightCoolerCredit.astro.title": "Creato con Astro",
+        "starlightCoolerCredit.astro.description": "Vuoi creare il tuo sito web statico? →",
+        "starlightCoolerCredit.starlight-blog.title": "Creato con Starlight Blog",
+        "starlightCoolerCredit.starlight-blog.description": "Vuoi creare il tuo blog Starlight? →",
+    },
 };
