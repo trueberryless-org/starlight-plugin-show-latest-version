@@ -36,7 +36,7 @@ export const Translations = {
     },    
     ru: {
         "starlightCoolerCredit.starlight.description": "Хотите создать свою документацию? →",
-        "starlightCoolerCredit.astro.title": "Работает на Astro",
+        "starlightCoolerCredit.astro.title": "Создано с помощью Astro",
         "starlightCoolerCredit.astro.description": "Хотите создать свой статичный сайт? →",
         "starlightCoolerCredit.starlight-blog.title": "Работает на блоге Starlight",
         "starlightCoolerCredit.starlight-blog.description": "Хотите создать свой Starlight блог? →",
