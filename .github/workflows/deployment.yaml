@@ -26,9 +26,15 @@ jobs:
               uses: actions/checkout@v4
               with:
                   fetch-depth: 0
+                  
+            - name: Read version from package.json
+              id: get_version
+              run: |
+                VERSION=$(jq -r '.version' package.json)
+                echo "VERSION=$VERSION" >> $GITHUB_ENV
 
             - name: Create tag
-              run: echo "IMAGE_TAG=$(echo $GITHUB_REF_NAME-$GITHUB_SHA)" >> $GITHUB_ENV
+              run: echo "IMAGE_TAG=${{ env.VERSION }}" >> $GITHUB_ENV
 
             - name: Setup PNPM
               uses: pnpm/action-setup@v3
