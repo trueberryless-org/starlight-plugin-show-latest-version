@@ -93,6 +93,6 @@ jobs:
 
             - uses: ncipollo/release-action@v1
               with:
-                  tag: ${{ env.IMAGE_TAG }}
+                  tag: ${{ env.IMAGE_NAME }}-docs@${{ env.IMAGE_TAG }}
                   makeLatest: true
                   body: "A docker image has been deployed to [Docker Hub](https://hub.docker.com/r/${{ env.IMAGE_NAME }}/tags)."
