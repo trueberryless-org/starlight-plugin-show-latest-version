@@ -1,6 +1,6 @@
 {
     "name": "starlight-cooler-credit-docs",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "license": "MIT",
     "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
     "author": "trueberryless-org",

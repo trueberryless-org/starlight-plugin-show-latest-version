@@ -1,5 +1,14 @@
 # starlight-cooler-credit-docs
 
+## 0.1.5
+
+### Patch Changes
+
+- [`da9eb35`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/da9eb359c1187597a00e43959ed7f81ecb73f130) Thanks [@trueberryless](https://github.com/trueberryless)! - Updates dependency @trueberryless-org/starlight-plugins-docs-components
+
+- Updated dependencies []:
+  - starlight-cooler-credit@0.1.5
+
 ## 0.1.4
 
 ### Patch Changes
