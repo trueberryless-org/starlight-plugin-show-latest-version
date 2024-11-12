@@ -12,7 +12,8 @@ concurrency:
 
 env:
     REGISTRY: docker.io
-    IMAGE_NAME: trueberryless/starlight-cooler-credit
+    IMAGE_OWNER: trueberryless
+    IMAGE_NAME: starlight-cooler-credit
     NODE_VERSION: 20
 
 jobs:
@@ -71,7 +72,7 @@ jobs:
               id: meta
               uses: docker/metadata-action@v5
               with:
-                  images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+                  images: ${{ env.REGISTRY }}/${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}
 
             - name: Build and push Docker image
               uses: docker/build-push-action@v6
@@ -79,13 +80,13 @@ jobs:
                   context: .
                   push: true
                   tags: |
-                      ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+                      ${{ env.IMAGE_NAME }}:${{ env.IMAGE_OWNER }}/${{ env.IMAGE_TAG }}
                       ${{ env.IMAGE_NAME }}:latest
                   labels: ${{ steps.meta.outputs.labels }}
 
             - name: Update deployment.yaml file
               run: |
-                  yq eval '.spec.template.spec.containers[0].image = "${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"' -i manifest/deployment.yaml
+                  yq eval '.spec.template.spec.containers[0].image = "${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"' -i manifest/deployment.yaml
 
             - uses: stefanzweifel/git-auto-commit-action@v4
               with:
@@ -95,4 +96,4 @@ jobs:
               with:
                   tag: ${{ env.IMAGE_NAME }}-docs@${{ env.IMAGE_TAG }}
                   makeLatest: true
-                  body: "A docker image has been deployed to [Docker Hub](https://hub.docker.com/r/${{ env.IMAGE_NAME }}/tags)."
+                  body: "A docker image has been deployed to [Docker Hub](https://hub.docker.com/r/${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}/tags)."
