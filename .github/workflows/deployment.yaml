@@ -80,8 +80,8 @@ jobs:
                   context: .
                   push: true
                   tags: |
-                      ${{ env.IMAGE_NAME }}:${{ env.IMAGE_OWNER }}/${{ env.IMAGE_TAG }}
-                      ${{ env.IMAGE_NAME }}:latest
+                      ${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+                      ${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}:latest
                   labels: ${{ steps.meta.outputs.labels }}
 
             - name: Update deployment.yaml file
