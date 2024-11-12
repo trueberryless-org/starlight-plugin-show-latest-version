@@ -21,8 +21,8 @@ importers:
         specifier: ^0.29.0
         version: 0.29.0(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3))
       '@trueberryless-org/starlight-plugins-docs-components':
-        specifier: ^0.2.1
-        version: 0.2.1(@astrojs/starlight@0.29.0(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3)))(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3))
+        specifier: ^0.2.2
+        version: 0.2.2(@astrojs/starlight@0.29.0(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3)))(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3))
       astro:
         specifier: ^4.16.10
         version: 4.16.10(rollup@4.25.0)(typescript@5.6.3)
@@ -706,8 +706,8 @@ packages:
   '@shikijs/vscode-textmate@9.3.0':
     resolution: {integrity: sha512-jn7/7ky30idSkd/O5yDBfAnVt+JJpepofP/POZ1iMOxK59cOfqIgg/Dj0eFsjOTMw+4ycJN0uhZH/Eb0bs/EUA==}
 
-  '@trueberryless-org/starlight-plugins-docs-components@0.2.1':
-    resolution: {integrity: sha512-DJVUsfM0A61+TrRS4cvYW9KcEksyZFlS716MswMuwhy/2ywYH6sYvPNQkoaRK5STG44hKZw8qHor4/BTfwRD4Q==}
+  '@trueberryless-org/starlight-plugins-docs-components@0.2.2':
+    resolution: {integrity: sha512-YVm+mJl8UXWiA91tacgNG/PH3X/WwPchD71K1Q3mz8B2friHjPBbr2X8kXqp04coX0pDk96/muuRccG8lqp7tg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
       '@astrojs/starlight': '>=0.28'
@@ -3113,7 +3113,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@9.3.0': {}
 
-  '@trueberryless-org/starlight-plugins-docs-components@0.2.1(@astrojs/starlight@0.29.0(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3)))(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3))':
+  '@trueberryless-org/starlight-plugins-docs-components@0.2.2(@astrojs/starlight@0.29.0(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3)))(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3))':
     dependencies:
       '@astrojs/starlight': 0.29.0(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3))
       '@hideoo/starlight-plugins-docs-components': 0.2.2(@astrojs/starlight@0.29.0(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3)))(astro@4.16.10(rollup@4.25.0)(typescript@5.6.3))
