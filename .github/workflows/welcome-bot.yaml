@@ -22,7 +22,7 @@ jobs:
           echo "title_case_repo_name=$TITLE_CASE_REPO_NAME" >> $GITHUB_ENV
       - uses: zephyrproject-rtos/action-first-interaction@7e6446f8439d8b4399169880c36a3a12b5747699
         with:
-          repo-token: ${{ secrets.PUBLIC_GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           pr-opened-message: |
             Hello! Thank you for opening your **first PR** to ${{ env.title_case_repo_name }}! ✨
 
