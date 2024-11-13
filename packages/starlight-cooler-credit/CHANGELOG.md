@@ -1,5 +1,11 @@
 # starlight-cooler-credit
 
+## 0.1.6
+
+### Patch Changes
+
+- [#18](https://github.com/trueberryless-org/starlight-cooler-credit/pull/18) [`6822737`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/6822737ce5a66924a967e5fecc8041a60b2c164b) Thanks [@staticWagomU](https://github.com/staticWagomU)! - Add Japanese language translation.
+
 ## 0.1.5
 
 ## 0.1.4
