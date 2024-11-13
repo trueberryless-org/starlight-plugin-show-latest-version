@@ -46,6 +46,6 @@ export const Translations = {
         "starlightCoolerCredit.astro.title": "Astro で作成",
         "starlightCoolerCredit.astro.description": "自分の静的ウェブサイトを作成したいですか？ →",
         "starlightCoolerCredit.starlight-blog.title": "Starlight Blog で作成",
-        "starlightCoolerCredit.starlight-blog.description": "自分の Starlight Blog を作成したですか? →",
+        "starlightCoolerCredit.starlight-blog.description": "自分の Starlight Blog を作成したいですか? →",
     },
 };
