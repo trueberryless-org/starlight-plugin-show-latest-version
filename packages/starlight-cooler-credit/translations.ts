@@ -48,4 +48,11 @@ export const Translations = {
         "starlightCoolerCredit.starlight-blog.title": "Starlight Blog で作成",
         "starlightCoolerCredit.starlight-blog.description": "自分の Starlight Blog を作成したいですか? →",
     },
+    zh: {
+        "starlightCoolerCredit.starlight.description": "你想构建自己的文档吗？ →",
+        "starlightCoolerCredit.astro.title": "由 Astro 构建",
+        "starlightCoolerCredit.astro.description": "想要构建自己的静态网站？ →",
+        "starlightCoolerCredit.starlight-blog.title": "由 Starlight Blog 构建",
+        "starlightCoolerCredit.starlight-blog.description": "想建立自己的 Starlight 博客吗？ →",
+    },
 };
