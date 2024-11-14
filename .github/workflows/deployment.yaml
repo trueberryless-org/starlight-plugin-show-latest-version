@@ -63,13 +63,11 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.PUBLIC_GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-    deployment:
-        needs: [changes, changesets]
-        # Only run if there is no changeset (i.e. a release), there are changes to the docs and the commit message contains '[ci] release' or 'deploy' (workflow_dispatch supported)
-        if: (${{ needs.changes.outputs.docs == 'true' }} && ${{ needs.changesets.outputs.hasChangesets== 'false' }} && (contains(github.event.head_commit.message, 'deploy') || contains(github.event.head_commit.message, '[ci] release'))) || github.event_name == 'workflow_dispatch'
+    image-tag:
+        name: Image Tag
         runs-on: ubuntu-latest
-        permissions:
-            contents: write
+        outputs:
+            version: ${{ steps.get_version.outputs.IMAGE_TAG }}
         steps:
             - name: Check out the repo
               uses: actions/checkout@v4
@@ -80,10 +78,20 @@ jobs:
               id: get_version
               run: |
                   VERSION=$(jq -r '.version' package.json)
-                  echo "VERSION=$VERSION" >> $GITHUB_ENV
+                  echo "IMAGE_TAG=$VERSION" >> $GITHUB_ENV
 
-            - name: Create tag
-              run: echo "IMAGE_TAG=${{ env.VERSION }}" >> $GITHUB_ENV
+    deployment:
+        needs: [changes, changesets, image-tag]
+        # Only run if there is no changeset (i.e. a release), there are changes to the docs and the commit message contains '[ci] release' or 'deploy' (workflow_dispatch supported)
+        if: (${{ needs.changes.outputs.docs == 'true' }} && ${{ needs.changesets.outputs.hasChangesets== 'false' }} && (contains(github.event.head_commit.message, 'deploy') || contains(github.event.head_commit.message, '[ci] release'))) || github.event_name == 'workflow_dispatch'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - name: Check out the repo
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
             - name: Setup PNPM
               uses: pnpm/action-setup@v3
@@ -128,13 +136,13 @@ jobs:
                   context: .
                   push: true
                   tags: |
-                      ${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+                      ${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}:${{ needs.image-tag.outputs.IMAGE_TAG }}
                       ${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}:latest
                   labels: ${{ steps.meta.outputs.labels }}
 
             - name: Update deployment.yaml file
               run: |
-                  yq eval '.spec.template.spec.containers[0].image = "${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"' -i manifest/deployment.yaml
+                  yq eval '.spec.template.spec.containers[0].image = "${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}:${{ needs.image-tag.outputs.IMAGE_TAG }}"' -i manifest/deployment.yaml
 
             - uses: stefanzweifel/git-auto-commit-action@v4
               with:
@@ -142,7 +150,7 @@ jobs:
 
     release:
         name: Release
-        # needs: [deployment]
+        needs: [image-tag] # deployment
         runs-on: ubuntu-latest
         permissions:
             contents: write
@@ -161,6 +169,6 @@ jobs:
 
             - uses: ncipollo/release-action@v1
               with:
-                  tag: ${{ env.IMAGE_NAME }}-docs@${{ env.IMAGE_TAG }}
+                  tag: ${{ env.IMAGE_NAME }}-docs@${{ needs.image-tag.outputs.IMAGE_TAG }}
                   makeLatest: true
                   body: ${{ steps.changelog.outputs.latest_changelog }}
