@@ -158,12 +158,19 @@ jobs:
             - name: Check out the repo
               uses: actions/checkout@v4
 
-            - name: Extract latest changelog entry
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: '3.x'
+
+            - name: Install markquery
+              run: pip install markquery
+
+            - name: Extract changelog section for the current version
               id: changelog
               run: |
-                  first_h2_heading=$(grep -m 1 '^## ' docs/CHANGELOG.md)
-                  second_h2_heading=$(grep -m 2 '^## ' docs/CHANGELOG.md)
-                  LATEST_CHANGELOG=$(sed -n '/^${first_h2_heading}$/,/^${second_h2_heading}$/p' docs/CHANGELOG.md | sed '$d')
+                  # Use the extracted version to find the corresponding changelog section
+                  LATEST_CHANGELOG=$(markquery -s "## ${{ needs.image-tag.outputs.IMAGE_TAG }}" docs/CHANGELOG.md)
                   echo "LATEST_CHANGELOG=$LATEST_CHANGELOG"
                   echo "LATEST_CHANGELOG=$LATEST_CHANGELOG" >> $GITHUB_ENV
 
