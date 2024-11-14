@@ -31,7 +31,7 @@ jobs:
                         - 'docs/**'
 
     changesets:
-        name: Release
+        name: Changesets
         runs-on: ubuntu-latest
         outputs:
             docs: ${{ steps.changesets.outputs.hasChangesets }}
@@ -144,10 +144,13 @@ jobs:
         permissions:
             contents: write
         steps:
+            - name: Check out the repo
+              uses: actions/checkout@v4
+
             - name: Extract latest changelog entry
               id: changelog
               run: |
-                  LATEST_CHANGELOG=$(awk '/^## /{if (++n == 2) exit} 1' /docs/CHANGELOG.md)
+                  LATEST_CHANGELOG=$(awk '/^## /{if (++n == 2) exit} 1' docs/CHANGELOG.md)
                   echo "LATEST_CHANGELOG=$LATEST_CHANGELOG" >> $GITHUB_ENV
 
             - uses: ncipollo/release-action@v1
