@@ -156,6 +156,7 @@ jobs:
                   first_h2_heading=$(grep -m 1 '^## ' docs/CHANGELOG.md)
                   second_h2_heading=$(grep -m 2 '^## ' docs/CHANGELOG.md)
                   LATEST_CHANGELOG=$(sed -n '/^${first_h2_heading}$/,/^${second_h2_heading}$/p' docs/CHANGELOG.md | sed '$d')
+                  echo "LATEST_CHANGELOG=$LATEST_CHANGELOG"
                   echo "LATEST_CHANGELOG=$LATEST_CHANGELOG" >> $GITHUB_ENV
 
             - uses: ncipollo/release-action@v1
