@@ -137,48 +137,21 @@ jobs:
               with:
                   commit_message: update deployment.json container image (automated)
 
-    # release:
-    #     name: Release
-    #     needs: [deployment]
-    #     runs-on: ubuntu-latest
-    #     permissions:
-    #         contents: write
-    #     steps:
-    #         - uses: ncipollo/release-action@v1
-    #           with:
-    #               tag: ${{ env.IMAGE_NAME }}-docs@${{ env.IMAGE_TAG }}
-    #               makeLatest: true
-    #               generateReleaseNotes: true
-    #               # body: "A docker image has been deployed to [Docker Hub](https://hub.docker.com/r/${{ env.IMAGE_OWNER }}/${{ env.IMAGE_NAME }}/tags)."
-
     release:
         name: Release
+        # needs: [deployment]
         runs-on: ubuntu-latest
-        outputs:
-            docs: ${{ steps.changesets.outputs.hasChangesets }}
+        permissions:
+            contents: write
         steps:
-            - name: Checkout Repo
-              uses: actions/checkout@v4
+            - name: Extract latest changelog entry
+              id: changelog
+              run: |
+                  LATEST_CHANGELOG=$(awk '/^## /{if (++n == 2) exit} 1' docs/CHANGELOG.md)
+                  echo "LATEST_CHANGELOG=$LATEST_CHANGELOG" >> $GITHUB_ENV
+
+            - uses: ncipollo/release-action@v1
               with:
-                  fetch-depth: 0
-
-            - name: Setup PNPM
-              uses: pnpm/action-setup@v3
-
-            - name: Setup Node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: ${{ env.NODE_VERSION }}
-                  cache: "pnpm"
-
-            - name: Install Dependencies
-              run: pnpm i
-
-            - name: Create Release Pull Request
-              id: changesets
-              uses: changesets/action@v1
-              with:
-                  createGithubReleases: true
-              env:
-                  GITHUB_TOKEN: ${{ secrets.PUBLIC_GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  tag: ${{ env.IMAGE_NAME }}-docs@${{ env.IMAGE_TAG }}
+                  makeLatest: true
+                  body: ${{ steps.changelog.outputs.latest_changelog }}
