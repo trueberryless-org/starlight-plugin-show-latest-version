@@ -67,7 +67,7 @@ jobs:
         name: Image Tag
         runs-on: ubuntu-latest
         outputs:
-            version: ${{ steps.get_version.outputs.IMAGE_TAG }}
+            IMAGE_TAG: ${{ steps.get_version.outputs.IMAGE_TAG }}
         steps:
             - name: Check out the repo
               uses: actions/checkout@v4
