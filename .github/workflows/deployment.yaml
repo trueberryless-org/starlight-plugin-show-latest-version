@@ -150,7 +150,7 @@ jobs:
             - name: Extract latest changelog entry
               id: changelog
               run: |
-                  LATEST_CHANGELOG=$(awk '/^## /{if (NR>1) exit}{print}' docs/CHANGELOG.md)
+                  LATEST_CHANGELOG=$(sed -n '/^## /{h;d};/^## /{x;p};h' docs/CHANGELOG.md)
                   echo "LATEST_CHANGELOG=$LATEST_CHANGELOG" >> $GITHUB_ENV
 
             - uses: ncipollo/release-action@v1
