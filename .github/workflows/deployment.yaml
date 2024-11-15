@@ -169,3 +169,4 @@ jobs:
                   tag: ${{ env.IMAGE_NAME }}-docs@${{ needs.image-tag.outputs.IMAGE_TAG }}-test
                   makeLatest: true
                   body: ${{ steps.extract-changelog.outputs.markdown }}
+
