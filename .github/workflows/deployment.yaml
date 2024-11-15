@@ -156,10 +156,10 @@ jobs:
             contents: write
         steps:
             - name: Check out the repo
-              uses: actions/checkout@v2.1.0
+              uses: actions/checkout@v4
 
             - id: extract-changelog
-              uses: sean0x42/markdown-extract@v4
+              uses: sean0x42/markdown-extract@v2.1.0
               with:
                   file: docs/CHANGELOG.md
                   pattern: '{{ needs.image-tag.outputs.IMAGE_TAG }}'
