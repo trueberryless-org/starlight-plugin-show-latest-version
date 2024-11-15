@@ -162,7 +162,7 @@ jobs:
               uses: sean0x42/markdown-extract@v2.1.0
               with:
                   file: docs/CHANGELOG.md
-                  pattern: '{{ needs.image-tag.outputs.IMAGE_TAG }}'
+                  pattern: ${{ needs.image-tag.outputs.IMAGE_TAG }}
 
             - uses: ncipollo/release-action@v1
               with:
