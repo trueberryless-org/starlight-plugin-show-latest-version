@@ -160,7 +160,7 @@ jobs:
 
             - id: extract-changelog
               uses: sean0x42/markdown-extract@v4
-                with:
+              with:
                   file: docs/CHANGELOG.md
                   pattern: {{ needs.image-tag.outputs.IMAGE_TAG }}
 
