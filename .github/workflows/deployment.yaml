@@ -158,24 +158,14 @@ jobs:
             - name: Check out the repo
               uses: actions/checkout@v4
 
-            - name: Set up Python
-              uses: actions/setup-python@v4
-              with:
-                  python-version: '3.x'
-
-            - name: Install markquery
-              run: pip install markquery
-
-            - name: Extract changelog section for the current version
-              id: changelog
-              run: |
-                  # Use the extracted version to find the corresponding changelog section
-                  LATEST_CHANGELOG=$(markquery -s "## ${{ needs.image-tag.outputs.IMAGE_TAG }}" docs/CHANGELOG.md)
-                  echo "LATEST_CHANGELOG=$LATEST_CHANGELOG"
-                  echo "LATEST_CHANGELOG=$LATEST_CHANGELOG" >> $GITHUB_ENV
+            - id: extract-changelog
+              uses: sean0x42/markdown-extract@v4
+                with:
+                  file: docs/CHANGELOG.md
+                  pattern: {{ needs.image-tag.outputs.IMAGE_TAG }}
 
             - uses: ncipollo/release-action@v1
               with:
-                  tag: ${{ env.IMAGE_NAME }}-docs@${{ needs.image-tag.outputs.IMAGE_TAG }}
+                  tag: ${{ env.IMAGE_NAME }}-docs@${{ needs.image-tag.outputs.IMAGE_TAG }}-test
                   makeLatest: true
-                  body: ${{ steps.changelog.outputs.latest_changelog }}
+                  body: ${{ steps.extract-changelog.outputs.markdown }}
