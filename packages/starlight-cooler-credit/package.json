@@ -23,6 +23,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "starlight",
+    "docs",
+    "astro",
+    "credit",
+    "cool",
+    "multilingual"
+  ],
   "homepage": "https://github.com/trueberryless-org/starlight-cooler-credit",
   "repository": {
     "type": "git",

@@ -29,7 +29,8 @@
     "docs",
     "astro",
     "credit",
-    "cool"
+    "cool",
+    "multilingual"
   ],
   "packageManager": "pnpm@9.3.0",
   "private": true,
