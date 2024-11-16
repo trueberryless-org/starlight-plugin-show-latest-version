@@ -1,5 +1,11 @@
 # starlight-cooler-credit
 
+## 0.1.8
+
+### Patch Changes
+
+- [`5c104d5`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/5c104d5b14b13966290122df58a8a752e98997d4) Thanks [@trueberryless](https://github.com/trueberryless)! - Completes ci release
+
 ## 0.1.7
 
 ### Patch Changes
