@@ -174,10 +174,4 @@ jobs:
           tag: ${{ env.IMAGE_NAME }}-docs@${{ needs.image-tag.outputs.IMAGE_TAG }}
           makeLatest: true
           body: ${{ steps.extract-changelog.outputs.markdown }}
-
-      - name: Publish release
-        uses: StuYarrow/publish-release@v1.1.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          id: ${{ steps.create_release.outputs.id }}
+          token: ${{ secrets.PUBLIC_GITHUB_TOKEN }}
