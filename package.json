@@ -1,6 +1,6 @@
 {
     "name": "starlight-cooler-credit-monorepo",
-    "version": "0.1.6",
+    "version": "1.0.0",
     "license": "MIT",
     "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
     "scripts": {
