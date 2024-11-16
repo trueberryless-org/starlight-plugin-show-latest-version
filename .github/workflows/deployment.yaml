@@ -174,3 +174,10 @@ jobs:
           tag: ${{ env.IMAGE_NAME }}-docs@${{ needs.image-tag.outputs.IMAGE_TAG }}
           makeLatest: true
           body: ${{ steps.extract-changelog.outputs.markdown }}
+
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: "{{ steps.extract-changelog.outputs.markdown }}"
