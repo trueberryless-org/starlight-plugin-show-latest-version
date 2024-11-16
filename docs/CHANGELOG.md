@@ -1,5 +1,11 @@
 # starlight-cooler-credit-docs
 
+## 0.1.9
+
+### Patch Changes
+
+- [`ca2e957`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/ca2e9575fd7e7cc7e346d0949ba373e9b8fed4ff) Thanks [@trueberryless](https://github.com/trueberryless)! - Adds discord webhook integration.
+
 ## 0.1.8
 
 ### Patch Changes
