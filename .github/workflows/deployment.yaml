@@ -81,7 +81,7 @@ jobs:
             - name: Read version from package.json
               id: get_version
               run: |
-                  VERSION=$(jq -r '.version' package.json)
+                  VERSION=$(jq -r '.version' docs/package.json)
                   echo "IMAGE_TAG=$VERSION" >> $GITHUB_ENV
 
     deployment:
