@@ -39,4 +39,3 @@ jobs:
                   title: "[ci] release"
               env:
                   GITHUB_TOKEN: ${{ secrets.PUBLIC_GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
