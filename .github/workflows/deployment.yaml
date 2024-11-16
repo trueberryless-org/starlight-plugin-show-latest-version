@@ -154,7 +154,7 @@ jobs:
 
   release:
     name: Release
-    needs: [image-tag, deployment]
+    needs: [image-tag]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -181,7 +181,7 @@ jobs:
           # color: "2105893"
           username: "GitHub Release Bot"
           avatar_url: "https://avatars.githubusercontent.com/u/9919?v=4"
-          content: ${{ steps.extract-changelog.outputs.markdown }}
+          content: "${{ steps.extract-changelog.outputs.markdown }}"
           # footer_title: "Changelog"
           # footer_icon_url: "https://cdn.discordapp.com/avatars/487431320314576937/bd64361e4ba6313d561d54e78c9e7171.png"
           footer_timestamp: true
