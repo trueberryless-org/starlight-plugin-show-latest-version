@@ -32,17 +32,6 @@
 -   Updated dependencies [[`fe5c299`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/fe5c29942aec69c3beb91ab613c83f6d810fc03f)]:
     -   starlight-cooler-credit@0.1.4
 
-## 0.2.0
-
-### Minor Changes
-
--   28ee0f3: Adds Sarah Rainsberger's website as showcase entry.
-
-### Patch Changes
-
--   Updated dependencies [28ee0f3]
-    -   starlight-cooler-credit@0.2.0
-
 ## 0.1.3
 
 ### Patch Changes
