@@ -136,3 +136,17 @@ jobs:
           tag: ${{ env.IMAGE_NAME }}@${{ needs.image-tag.outputs.IMAGE_TAG }}
           makeLatest: true
           body: ${{ steps.extract-changelog.outputs.markdown }}
+
+      - name: Github Releases To Discord
+        uses: SethCohen/github-releases-to-discord@v1.16.2
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          # color: "2105893"
+          username: "GitHub Release Bot"
+          avatar_url: "https://avatars.githubusercontent.com/u/9919?v=4"
+          content: ${{ steps.extract-changelog.outputs.markdown }}
+          # footer_title: "Changelog"
+          # footer_icon_url: "https://cdn.discordapp.com/avatars/487431320314576937/bd64361e4ba6313d561d54e78c9e7171.png"
+          footer_timestamp: true
+          max_description: "4096"
+          reduce_headings: false
