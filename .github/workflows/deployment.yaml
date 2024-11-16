@@ -173,3 +173,4 @@ jobs:
           tag: ${{ env.IMAGE_NAME }}-docs@${{ needs.image-tag.outputs.IMAGE_TAG }}
           makeLatest: true
           body: ${{ steps.extract-changelog.outputs.markdown }}
+          token: ${{ secrets.PUBLIC_GITHUB_TOKEN }}
