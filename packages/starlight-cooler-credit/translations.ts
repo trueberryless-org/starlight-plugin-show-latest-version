@@ -55,7 +55,7 @@ export const Translations = {
         "starlightCoolerCredit.starlight-blog.title": "由 Starlight Blog 构建",
         "starlightCoolerCredit.starlight-blog.description": "想建立自己的 Starlight 博客吗？ →",
     },
-    en: {
+    ar: {
         "starlightCoolerCredit.starlight.description": "تود بناء توثيقك الخاص؟ →",
         "starlightCoolerCredit.astro.title": "مبني على Astro",
         "starlightCoolerCredit.astro.description": "تود بناء موقعك الثابت؟ →",
