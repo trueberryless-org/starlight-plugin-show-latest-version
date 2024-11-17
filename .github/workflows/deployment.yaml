@@ -171,7 +171,7 @@ jobs:
       - name: Remove first line of multiline string
         run: |
           # Remove the first line
-          LATEST_CHANGELOG=$(echo "${{ steps.extract-changelog.outputs.markdown }}" | sed '1d')
+          LATEST_CHANGELOG=$(echo ${{ steps.extract-changelog.outputs.markdown }} | sed '1d')
           echo "LATEST_CHANGELOG=$LATEST_CHANGELOG" >> $GITHUB_ENV
 
       - uses: ncipollo/release-action@v1
