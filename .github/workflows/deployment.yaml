@@ -154,7 +154,7 @@ jobs:
 
   release:
     name: Release
-    needs: [image-tag]
+    needs: [image-tag, deployment]
     runs-on: ubuntu-latest
     permissions:
       contents: write
