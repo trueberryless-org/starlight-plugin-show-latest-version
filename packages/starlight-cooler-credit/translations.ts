@@ -4,7 +4,7 @@ export const Translations = {
         "starlightCoolerCredit.astro.title": "Built with Astro",
         "starlightCoolerCredit.astro.description": "Want to build your own static website? →",
         "starlightCoolerCredit.starlight-blog.title": "Built with Starlight Blog",
-        "starlightCoolerCredit.starlight-blog.description": "Want to build your own Starlight Blog? →",
+        "starlightCoolerCredit.starlight-blog.description": "Want to build your own Starlight blog? →",
     },
     de: {
         "starlightCoolerCredit.starlight.description": "Willst du deine eigene Dokumentation erstellen? →",
