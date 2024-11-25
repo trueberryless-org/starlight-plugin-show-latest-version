@@ -1,14 +1,32 @@
 {
   "name": "starlight-cooler-credit",
   "version": "0.1.8",
-  "license": "MIT",
   "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
+  "keywords": [
+    "starlight",
+    "docs",
+    "astro",
+    "credit",
+    "cool",
+    "multilingual"
+  ],
+  "homepage": "https://github.com/trueberryless-org/starlight-cooler-credit",
+  "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git",
+    "directory": "packages/starlight-cooler-credit"
+  },
+  "license": "MIT",
   "author": "trueberryless-org",
   "type": "module",
   "exports": {
     ".": "./index.ts",
     "./overrides/PageSidebar.astro": "./overrides/PageSidebar.astro",
     "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "change-case": "^5.4.4"
   },
   "devDependencies": {
     "@astrojs/starlight": "^0.29.0",
@@ -22,23 +40,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "keywords": [
-    "starlight",
-    "docs",
-    "astro",
-    "credit",
-    "cool",
-    "multilingual"
-  ],
-  "homepage": "https://github.com/trueberryless-org/starlight-cooler-credit",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git",
-    "directory": "packages/starlight-cooler-credit"
-  },
-  "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues",
-  "dependencies": {
-    "change-case": "^5.4.4"
   }
 }
