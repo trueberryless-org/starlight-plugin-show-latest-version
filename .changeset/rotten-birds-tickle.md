@@ -2,4 +2,4 @@
 "starlight-cooler-credit": patch
 ---
 
-Fix german grammar translation 
+Fix german grammar translation

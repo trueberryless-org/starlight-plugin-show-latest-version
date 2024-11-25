@@ -2,19 +2,19 @@
 title: Starlight Coolere Anerkennung
 description: Füge einen netten Hinweis auf Starlight oder Astro am Ende des Inhaltsverzeichnisses hinzu.
 head:
-    - tag: title
-      content: Starlight Coolere Anerkennung
+  - tag: title
+    content: Starlight Coolere Anerkennung
 template: splash
 editUrl: false
 hero:
-    tagline: Füge einen netten Hinweis auf Starlight oder Astro am Ende des Inhaltsverzeichnisses hinzu.
-    image:
-        dark: ../../../assets/big-logo-dark.png
-        light: ../../../assets/big-logo-light.png
-    actions:
-        - text: Loslegen
-          link: /de/getting-started/
-          icon: right-arrow
+  tagline: Füge einen netten Hinweis auf Starlight oder Astro am Ende des Inhaltsverzeichnisses hinzu.
+  image:
+    dark: ../../../assets/big-logo-dark.png
+    light: ../../../assets/big-logo-light.png
+  actions:
+    - text: Loslegen
+      link: /de/getting-started/
+      icon: right-arrow
 ---
 
 import { Card, CardGrid } from "@astrojs/starlight/components";
@@ -22,12 +22,13 @@ import { Card, CardGrid } from "@astrojs/starlight/components";
 ## Nächste Schritte
 
 <CardGrid stagger>
-    <Card title="Installiere das Plugin" icon="puzzle">
-        In der [Startanleitung](/de/getting-started/) findest du Anweisungen zur Installation.
-    </Card>
-    <Card title="Konfiguriere das Plugin" icon="setting">
-        Bearbeite deine Konfiguration in der Datei `astro.config.mjs`.
-    </Card>
+  <Card title="Installiere das Plugin" icon="puzzle">
+    In der [Startanleitung](/de/getting-started/) findest du Anweisungen zur
+    Installation.
+  </Card>
+  <Card title="Konfiguriere das Plugin" icon="setting">
+    Bearbeite deine Konfiguration in der Datei `astro.config.mjs`.
+  </Card>
 </CardGrid>
 
 import { ContributorList } from "starlight-contributor-list";
