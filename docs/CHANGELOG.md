@@ -1,5 +1,14 @@
 # starlight-cooler-credit-docs
 
+## 0.1.10
+
+### Patch Changes
+
+- [#29](https://github.com/trueberryless-org/starlight-cooler-credit/pull/29) [`92e905e`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/92e905e1005beb67e282227768856b39d3d912b9) Thanks [@trueberryless](https://github.com/trueberryless)! - Add Starlight Blog string to type of credit option
+
+- Updated dependencies [[`ab0d6d0`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/ab0d6d02f2e8dca47620b19924bdd8f1909540c9), [`04c1813`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/04c181327f6a676fe63422724f92498a2690bfc5), [`cae1ef3`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/cae1ef353f0d8cf3d63ccbfd08f7ebcece1abc19)]:
+  - starlight-cooler-credit@0.1.9
+
 ## 0.1.9
 
 ### Patch Changes
