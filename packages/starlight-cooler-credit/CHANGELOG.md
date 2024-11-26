@@ -1,5 +1,15 @@
 # starlight-cooler-credit
 
+## 0.1.9
+
+### Patch Changes
+
+- [#25](https://github.com/trueberryless-org/starlight-cooler-credit/pull/25) [`ab0d6d0`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/ab0d6d02f2e8dca47620b19924bdd8f1909540c9) Thanks [@X7md](https://github.com/X7md) and [@Omar](https://github.com/OmarIsAdev)! - Add Arabic language translation
+
+- [#26](https://github.com/trueberryless-org/starlight-cooler-credit/pull/26) [`04c1813`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/04c181327f6a676fe63422724f92498a2690bfc5) Thanks [@trueberryless](https://github.com/trueberryless)! - Fix german grammar translation
+
+- [#27](https://github.com/trueberryless-org/starlight-cooler-credit/pull/27) [`cae1ef3`](https://github.com/trueberryless-org/starlight-cooler-credit/commit/cae1ef353f0d8cf3d63ccbfd08f7ebcece1abc19) Thanks [@trueberryless](https://github.com/trueberryless)! - Make English blog description better
+
 ## 0.1.8
 
 ### Patch Changes
