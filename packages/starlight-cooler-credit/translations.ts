@@ -84,6 +84,7 @@ export const Translations = {
     "starlightCoolerCredit.astro.title": "مبني على Astro",
     "starlightCoolerCredit.astro.description": "تود بناء موقعك الثابت؟ ←",
     "starlightCoolerCredit.starlight-blog.title": "مبني على Starlight Blog",
-    "starlightCoolerCredit.starlight-blog.description": "هل تريد ان تطور Starlight blog الخاص بك؟ ←",
+    "starlightCoolerCredit.starlight-blog.description":
+      "هل تريد ان تطور Starlight blog الخاص بك؟ ←",
   },
 };
