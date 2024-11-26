@@ -1,6 +1,6 @@
 # `starlight-plugin-show-latest-version`
 
-Add a nice credit to Starlight or Astro at the bottom of Table of Contents.
+Show the latest released version of your Starlight plugin in your documentation.
 
 ## Package
 
