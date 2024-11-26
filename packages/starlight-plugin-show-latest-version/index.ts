@@ -9,6 +9,7 @@ import {
   type StarlightPluginShowLatestVersionUserConfig,
 } from "./libs/config";
 import { vitePluginStarlightPluginShowLatestVersionConfig } from "./libs/vite";
+import fetchVersion from "./libs/utils";
 
 export type {
   StarlightPluginShowLatestVersionConfig,
@@ -19,6 +20,7 @@ export default function starlightPluginShowLatestVersion(
   userConfig?: StarlightPluginShowLatestVersionUserConfig
 ): StarlightPlugin {
   const config = validateConfig(userConfig);
+  const contextPromise = fetchVersion(config);
 
   return {
     name: "starlight-plugin-show-latest-version",
@@ -56,11 +58,15 @@ export default function starlightPluginShowLatestVersion(
         addIntegration({
           name: "starlight-plugin-show-latest-version-integration",
           hooks: {
-            "astro:config:setup": ({ updateConfig }) => {
+            "astro:config:setup": async ({ updateConfig }) => {
+              const context = await contextPromise;
               updateConfig({
                 vite: {
                   plugins: [
-                    vitePluginStarlightPluginShowLatestVersionConfig(config),
+                    vitePluginStarlightPluginShowLatestVersionConfig(
+                      config,
+                      context
+                    ),
                   ],
                 },
               });

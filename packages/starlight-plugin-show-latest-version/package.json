@@ -23,9 +23,6 @@
     "./overrides/SiteTitle.astro": "./overrides/SiteTitle.astro",
     "./package.json": "./package.json"
   },
-  "dependencies": {
-    "change-case": "^5.4.4"
-  },
   "devDependencies": {
     "@astrojs/starlight": "^0.29.0",
     "astro": "^4.16.10"

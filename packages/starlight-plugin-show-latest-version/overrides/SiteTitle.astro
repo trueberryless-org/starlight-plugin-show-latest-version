@@ -2,32 +2,13 @@
 import { logos } from 'virtual:starlight/user-images';
 import config from 'virtual:starlight/user-config';
 import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
+import context from 'virtual:starlight-plugin-show-latest-version-context';
 import type { Props } from '../props';
 import { Badge } from '@astrojs/starlight/components';
+
 const { siteTitle, siteTitleHref } = Astro.props;
 
-const fetchVersion = async () => {
-  const repo = pluginConfig.repo;
-  const apiUrl = `https://api.github.com/repos/${repo}/releases/latest`;
-
-  try {
-    const data = await fetch(apiUrl)
-      .then(response => {
-        if (!response.ok) throw new Error(`Failed to fetch: ${response.statusText}`);
-        return response.json();
-      });
-
-    // Extract and normalize the version
-    const tagName = data.tag_name || '';
-    const match = tagName.match(/(?:.*@)?(?<version>[0-9]+\.[0-9]+\.[0-9]+)/);
-    return match ? `v${match.groups.version}` : 'v0.0.0';
-  } catch (error) {
-    console.error(error);
-    return 'v0.0.0'; // Fallback version
-  }
-};
-
-const version = await fetchVersion();
+const version = context.version;
 ---
 
 <a href={siteTitleHref} class="site-title sl-flex">

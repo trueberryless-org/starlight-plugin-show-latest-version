@@ -7,7 +7,7 @@ import starlightPluginsDocsComponents from "@trueberryless-org/starlight-plugins
 export default defineConfig({
   integrations: [
     starlight({
-      title: "Starlight Cooler Credit",
+      title: "Starlight Plugin Show Latest Version",
       logo: {
         light: "./src/assets/logo-light.png",
         dark: "./src/assets/logo-dark.png",
@@ -25,20 +25,18 @@ export default defineConfig({
         starlightPluginsDocsComponents({
           pluginName: "starlight-plugin-show-latest-version",
           showcaseProps: {
-            entries: [
-              {
-                thumbnail: "./src/assets/rainsberger.ca.webp",
-                href: "https://www.rainsberger.ca",
-                title: "Sarah Rainsberger",
-              },
-            ],
+            entries: [],
           },
         }),
       ],
       sidebar: [
         {
           label: "Start Here",
-          items: [{ slug: "getting-started" }, { slug: "configuration" }],
+          items: [
+            { slug: "getting-started" },
+            { slug: "configuration" },
+            { slug: "version-extraction-algorithm" },
+          ],
         },
       ],
       social: {
