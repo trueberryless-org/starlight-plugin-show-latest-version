@@ -9,13 +9,13 @@ The Starlight Cooler Credit plugin can be configured inside the `astro.config.mj
 // astro.config.mjs
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
-import starlightCoolerCredit from "starlight-view-modes";
+import starlightPluginShowLatestVersion from "starlight-view-modes";
 
 export default defineConfig({
   integrations: [
     starlight({
       plugins: [
-        starlightCoolerCredit({
+        starlightPluginShowLatestVersion({
           // Configuration options go here.
         }),
       ],
@@ -55,7 +55,7 @@ Please note that if you want to provide credit text for each locale, that there 
 Here is an example for a custom configuration:
 
 ```ts
-starlightCoolerCredit({
+starlightPluginShowLatestVersion({
     credit: {
         title: {
             en: "Built with Astro",

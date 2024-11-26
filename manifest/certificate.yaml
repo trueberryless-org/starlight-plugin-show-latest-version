@@ -1,12 +1,12 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: starlight-cooler-credit
-  namespace: starlight-cooler-credit
+  name: starlight-plugin-show-latest-version
+  namespace: starlight-plugin-show-latest-version
 spec:
-  secretName: starlight-cooler-credit
+  secretName: starlight-plugin-show-latest-version
   issuerRef:
     name: acme-issuer
     kind: ClusterIssuer
   dnsNames:
-    - "starlight-cooler-credit.trueberryless.org"
+    - "starlight-plugin-show-latest-version.trueberryless.org"

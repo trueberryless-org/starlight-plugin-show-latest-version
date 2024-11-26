@@ -12,7 +12,7 @@ concurrency:
 env:
   REGISTRY: docker.io
   IMAGE_OWNER: trueberryless
-  IMAGE_NAME: starlight-cooler-credit
+  IMAGE_NAME: starlight-plugin-show-latest-version
   NODE_VERSION: 20
 
 jobs:

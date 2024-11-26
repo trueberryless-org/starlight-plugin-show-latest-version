@@ -1,4 +1,4 @@
-# `starlight-cooler-credit`
+# `starlight-plugin-show-latest-version`
 
 Add a nice credit to Starlight or Astro at the bottom of Table of Contents.
 
@@ -6,7 +6,7 @@ Add a nice credit to Starlight or Astro at the bottom of Table of Contents.
 
 Want to get started immediately?
 
-Check out the `starlight-cooler-credit` getting started guide.
+Check out the `starlight-plugin-show-latest-version` getting started guide.
 
 ## License
 

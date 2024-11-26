@@ -1,4 +1,4 @@
-# `starlight-cooler-credit`
+# `starlight-plugin-show-latest-version`
 
 Add a nice credit to Starlight or Astro at the bottom of Table of Contents.
 

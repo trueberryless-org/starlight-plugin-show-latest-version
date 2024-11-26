@@ -3,30 +3,31 @@ import type {
   StarlightUserConfig,
 } from "@astrojs/starlight/types";
 import type { AstroIntegrationLogger } from "astro";
-import { Translations } from "./translations";
 import {
-  type StarlightCoolerCreditConfig,
+  type StarlightPluginShowLatestVersionConfig,
   validateConfig,
-  type StarlightCoolerCreditUserConfig,
+  type StarlightPluginShowLatestVersionUserConfig,
 } from "./libs/config";
-import { vitePluginStarlightCoolerCreditConfig } from "./libs/vite";
+import { vitePluginStarlightPluginShowLatestVersionConfig } from "./libs/vite";
 
-export type { StarlightCoolerCreditConfig, StarlightCoolerCreditUserConfig };
+export type {
+  StarlightPluginShowLatestVersionConfig,
+  StarlightPluginShowLatestVersionUserConfig,
+};
 
-export default function starlightCoolerCredit(
-  userConfig?: StarlightCoolerCreditUserConfig
+export default function starlightPluginShowLatestVersion(
+  userConfig?: StarlightPluginShowLatestVersionUserConfig
 ): StarlightPlugin {
   const config = validateConfig(userConfig);
 
   return {
-    name: "starlight-cooler-credit",
+    name: "starlight-plugin-show-latest-version",
     hooks: {
       setup({
         addIntegration,
         updateConfig: updateStarlightConfig,
         config: starlightConfig,
         logger,
-        injectTranslations,
       }) {
         /**
          * This is the entry point of your Starlight plugin.
@@ -37,9 +38,9 @@ export default function starlightCoolerCredit(
          *
          * @see https://starlight.astro.build/reference/plugins/
          */
-        logger.info("Hello from the starlight-cooler-credit plugin!");
-
-        injectTranslations(Translations);
+        logger.info(
+          "Hello from the starlight-plugin-show-latest-version plugin!"
+        );
 
         updateStarlightConfig({
           components: {
@@ -47,18 +48,20 @@ export default function starlightCoolerCredit(
             ...overrideStarlightComponent(
               starlightConfig.components,
               logger,
-              "PageSidebar"
+              "SiteTitle"
             ),
           },
         });
 
         addIntegration({
-          name: "starlight-cooler-credit-integration",
+          name: "starlight-plugin-show-latest-version-integration",
           hooks: {
             "astro:config:setup": ({ updateConfig }) => {
               updateConfig({
                 vite: {
-                  plugins: [vitePluginStarlightCoolerCreditConfig(config)],
+                  plugins: [
+                    vitePluginStarlightPluginShowLatestVersionConfig(config),
+                  ],
                 },
               });
             },
@@ -79,13 +82,13 @@ function overrideStarlightComponent(
       `It looks like you already have a \`${component}\` component override in your Starlight configuration.`
     );
     logger.warn(
-      `To use \`starlight-cooler-credit\`, either remove your override or update it to render the content from \`starlight-cooler-credit/overrides/${component}.astro\`.`
+      `To use \`starlight-plugin-show-latest-version\`, either remove your override or update it to render the content from \`starlight-plugin-show-latest-version/overrides/${component}.astro\`.`
     );
 
     return {};
   }
 
   return {
-    [component]: `starlight-cooler-credit/overrides/${component}.astro`,
+    [component]: `starlight-plugin-show-latest-version/overrides/${component}.astro`,
   };
 }

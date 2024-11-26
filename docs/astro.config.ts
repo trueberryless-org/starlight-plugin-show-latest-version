@@ -1,16 +1,13 @@
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 import starlightLinksValidator from "starlight-links-validator";
-import starlightCoolerCredit from "starlight-cooler-credit";
+import starlightPluginShowLatestVersion from "starlight-plugin-show-latest-version";
 import starlightPluginsDocsComponents from "@trueberryless-org/starlight-plugins-docs-components";
 
 export default defineConfig({
   integrations: [
     starlight({
-      title: {
-        en: "Starlight Cooler Credit",
-        de: "Starlight Coolere Anerkennung",
-      },
+      title: "Starlight Cooler Credit",
       logo: {
         light: "./src/assets/logo-light.png",
         dark: "./src/assets/logo-dark.png",
@@ -18,23 +15,15 @@ export default defineConfig({
       },
       editLink: {
         baseUrl:
-          "https://github.com/trueberryless-org/starlight-cooler-credit/edit/main/docs/",
-      },
-      locales: {
-        root: {
-          lang: "en",
-          label: "English",
-        },
-        de: {
-          lang: "de",
-          label: "Deutsch",
-        },
+          "https://github.com/trueberryless-org/starlight-plugin-show-latest-version/edit/main/docs/",
       },
       plugins: [
         starlightLinksValidator(),
-        starlightCoolerCredit(),
+        starlightPluginShowLatestVersion({
+          repo: "trueberryless-org/starlight-plugin-show-latest-version",
+        }),
         starlightPluginsDocsComponents({
-          pluginName: "starlight-cooler-credit",
+          pluginName: "starlight-plugin-show-latest-version",
           showcaseProps: {
             entries: [
               {
@@ -49,14 +38,12 @@ export default defineConfig({
       sidebar: [
         {
           label: "Start Here",
-          translations: {
-            de: "Loslegen",
-          },
           items: [{ slug: "getting-started" }, { slug: "configuration" }],
         },
       ],
       social: {
-        github: "https://github.com/trueberryless-org/starlight-cooler-credit",
+        github:
+          "https://github.com/trueberryless-org/starlight-plugin-show-latest-version",
       },
     }),
   ],

@@ -15,14 +15,14 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 
 <Steps>
 
-1. `starlight-cooler-credit` ist ein Starlight [Plugin](https://starlight.astro.build/de/reference/plugins/). Installiere es, indem du den folgenden Befehl in deinem Terminal ausführst:
+1. `starlight-plugin-show-latest-version` ist ein Starlight [Plugin](https://starlight.astro.build/de/reference/plugins/). Installiere es, indem du den folgenden Befehl in deinem Terminal ausführst:
 
    <Tabs syncKey="pkg">
 
    <TabItem label="npm">
 
    ```sh
-   npm install starlight-cooler-credit
+   npm install starlight-plugin-show-latest-version
    ```
 
    </TabItem>
@@ -30,7 +30,7 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
    <TabItem label="pnpm">
 
    ```sh
-   pnpm add starlight-cooler-credit
+   pnpm add starlight-plugin-show-latest-version
    ```
 
    </TabItem>
@@ -38,7 +38,7 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
    <TabItem label="Yarn">
 
    ```sh
-   yarn add starlight-cooler-credit
+   yarn add starlight-plugin-show-latest-version
    ```
 
    </TabItem>
@@ -51,12 +51,12 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
    // astro.config.mjs
    import starlight from '@astrojs/starlight'
    import { defineConfig } from 'astro/config'
-   +import starlightCoolerCredit from 'starlight-cooler-credit'
+   +import starlightPluginShowLatestVersion from 'starlight-plugin-show-latest-version'
 
    export default defineConfig({
      integrations: [
        starlight({
-   +      plugins: [starlightCoolerCredit()],
+   +      plugins: [starlightPluginShowLatestVersion()],
          title: 'My Docs',
        }),
      ],

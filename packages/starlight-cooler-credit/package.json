@@ -1,28 +1,26 @@
 {
-  "name": "starlight-cooler-credit",
-  "version": "0.1.9",
+  "name": "starlight-plugin-show-latest-version",
+  "version": "0.0.0",
   "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
   "keywords": [
     "starlight",
     "docs",
     "astro",
-    "credit",
-    "cool",
-    "multilingual"
+    "version"
   ],
-  "homepage": "https://github.com/trueberryless-org/starlight-cooler-credit",
-  "bugs": "https://github.com/trueberryless-org/starlight-cooler-credit/issues",
+  "homepage": "https://github.com/trueberryless-org/starlight-plugin-show-latest-version",
+  "bugs": "https://github.com/trueberryless-org/starlight-plugin-show-latest-version/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git",
-    "directory": "packages/starlight-cooler-credit"
+    "url": "https://github.com/trueberryless-org/starlight-plugin-show-latest-version.git",
+    "directory": "packages/starlight-plugin-show-latest-version"
   },
   "license": "MIT",
   "author": "trueberryless-org",
   "type": "module",
   "exports": {
     ".": "./index.ts",
-    "./overrides/PageSidebar.astro": "./overrides/PageSidebar.astro",
+    "./overrides/SiteTitle.astro": "./overrides/SiteTitle.astro",
     "./package.json": "./package.json"
   },
   "dependencies": {

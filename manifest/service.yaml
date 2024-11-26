@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: starlight-cooler-credit
-  namespace: starlight-cooler-credit
+  name: starlight-plugin-show-latest-version
+  namespace: starlight-plugin-show-latest-version
   annotations:
     cert-manager.io/issuer: acme-issuer
 spec:
   selector:
-    app: starlight-cooler-credit
+    app: starlight-plugin-show-latest-version
   ports:
     - name: http
       port: 80

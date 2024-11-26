@@ -1,4 +1,4 @@
-declare module "virtual:starlight-cooler-credit-config" {
-  const StarlightCoolerCreditConfig: import("./index").StarlightCoolerCreditConfig;
-  export default StarlightCoolerCreditConfig;
+declare module "virtual:starlight-plugin-show-latest-version-config" {
+  const StarlightPluginShowLatestVersionConfig: import("./index").StarlightPluginShowLatestVersionConfig;
+  export default StarlightPluginShowLatestVersionConfig;
 }

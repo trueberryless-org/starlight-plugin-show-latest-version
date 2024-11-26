@@ -1,15 +1,15 @@
 {
-  "name": "starlight-cooler-credit-monorepo",
+  "name": "starlight-plugin-show-latest-version-monorepo",
   "version": "1.0.0",
   "private": true,
   "description": "Add a nice credit to Starlight or Astro at the bottom of Table of Contents.",
-  "homepage": "https://github.com/trueberryless-org/starlight-cooler-credit",
+  "homepage": "https://github.com/trueberryless-org/starlight-plugin-show-latest-version",
   "bugs": {
-    "url": "https://github.com/trueberryless-org/starlight-cooler-credit/issues"
+    "url": "https://github.com/trueberryless-org/starlight-plugin-show-latest-version/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/trueberryless-org/starlight-cooler-credit.git"
+    "url": "https://github.com/trueberryless-org/starlight-plugin-show-latest-version.git"
   },
   "license": "MIT",
   "author": "trueberryless <trueberryless@gmail.com> (https://trueberryless.org)",

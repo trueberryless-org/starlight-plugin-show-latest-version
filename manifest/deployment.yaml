@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: starlight-cooler-credit
-  namespace: starlight-cooler-credit
+  name: starlight-plugin-show-latest-version
+  namespace: starlight-plugin-show-latest-version
   labels:
-    app: starlight-cooler-credit
+    app: starlight-plugin-show-latest-version
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: starlight-cooler-credit
+      app: starlight-plugin-show-latest-version
   template:
     metadata:
       labels:
-        app: starlight-cooler-credit
+        app: starlight-plugin-show-latest-version
     spec:
       containers:
-        - name: starlight-cooler-credit
-          image: "trueberryless/starlight-cooler-credit:0.1.10"
+        - name: starlight-plugin-show-latest-version
+          image: "trueberryless/starlight-plugin-show-latest-version:0.1.10"
           imagePullPolicy: Always

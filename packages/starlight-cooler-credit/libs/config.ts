@@ -1,24 +1,21 @@
 import { AstroError } from "astro/errors";
 import { z } from "astro/zod";
 
-const configSchema = z
-  .object({
-    credit: z
-      .union([
-        z.enum(["Astro", "Starlight", "Starlight Blog"]),
-        z.object({
-          title: z.union([z.string(), z.record(z.string())]),
-          href: z.string().url(),
-          description: z.union([z.string(), z.record(z.string())]).optional(),
-        }),
-      ])
-      .default("Starlight"),
-  })
-  .default({});
+const configSchema = z.object({
+  repo: z.string(),
+  badge: z
+    .object({
+      variant: z
+        .enum(["default", "note", "danger", "success", "caution", "tip"])
+        .default("default"),
+      size: z.enum(["small", "medium", "large"]).default("medium"),
+    })
+    .default({}),
+});
 
 export function validateConfig(
   userConfig: unknown
-): StarlightCoolerCreditConfig {
+): StarlightPluginShowLatestVersionConfig {
   const config = configSchema.safeParse(userConfig);
 
   if (!config.success) {
@@ -42,5 +39,9 @@ export function validateConfig(
   return config.data;
 }
 
-export type StarlightCoolerCreditUserConfig = z.input<typeof configSchema>;
-export type StarlightCoolerCreditConfig = z.output<typeof configSchema>;
+export type StarlightPluginShowLatestVersionUserConfig = z.input<
+  typeof configSchema
+>;
+export type StarlightPluginShowLatestVersionConfig = z.output<
+  typeof configSchema
+>;
