@@ -12,16 +12,16 @@ import { defineConfig } from "astro/config";
 import starlightCoolerCredit from "starlight-view-modes";
 
 export default defineConfig({
-    integrations: [
-        starlight({
-            plugins: [
-                starlightCoolerCredit({
-                    // Die Konfigurationsoptionen findest du hier.
-                }),
-            ],
-            title: "My Docs",
+  integrations: [
+    starlight({
+      plugins: [
+        starlightCoolerCredit({
+          // Die Konfigurationsoptionen findest du hier.
         }),
-    ],
+      ],
+      title: "My Docs",
+    }),
+  ],
 });
 ```
 
@@ -36,6 +36,7 @@ Das Starlight Cooler Credit Plugin akzeptiert die folgenden Konfigurationsoption
 ```ts
 "Astro" |
 "Starlight" |
+"Starlight Blog" |
 {
     title: string | Record<string, string>;
     href: string;
