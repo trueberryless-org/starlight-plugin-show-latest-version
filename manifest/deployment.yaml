@@ -17,5 +17,5 @@ spec:
     spec:
       containers:
         - name: starlight-plugin-show-latest-version
-          image: "trueberryless/starlight-plugin-show-latest-version:0.1.10"
+          image: "trueberryless/starlight-plugin-show-latest-version:0.1.0"
           imagePullPolicy: Always
