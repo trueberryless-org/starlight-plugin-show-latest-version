@@ -23,6 +23,9 @@
     "./overrides/SiteTitle.astro": "./overrides/SiteTitle.astro",
     "./package.json": "./package.json"
   },
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "@astrojs/starlight": "^0.29.0",
     "@jest/globals": "^29.7.0",
@@ -39,8 +42,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "test": "jest"
   }
 }
