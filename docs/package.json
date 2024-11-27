@@ -31,8 +31,8 @@
     "astro": "^4.16.10",
     "sharp": "^0.33.5",
     "starlight-contributor-list": "^0.1.0",
-    "starlight-plugin-show-latest-version": "workspace:*",
-    "starlight-links-validator": "^0.13.0"
+    "starlight-links-validator": "^0.13.0",
+    "starlight-plugin-show-latest-version": "workspace:*"
   },
   "packageManager": "pnpm@9.3.0",
   "engines": {
