@@ -20,7 +20,7 @@ export default defineConfig({
       plugins: [
         starlightLinksValidator(),
         starlightPluginShowLatestVersion({
-          repo: "trueberryless-org/starlight-plugin-show-latest-version",
+          repo: "HiDeoo/starlight-openapi",
         }),
         starlightPluginsDocsComponents({
           pluginName: "starlight-plugin-show-latest-version",
@@ -37,6 +37,10 @@ export default defineConfig({
             { slug: "configuration" },
             { slug: "version-extraction-algorithm" },
           ],
+        },
+        {
+          label: "Demo",
+          link: "/demo",
         },
       ],
       social: {

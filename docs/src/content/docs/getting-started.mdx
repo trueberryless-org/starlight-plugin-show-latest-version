@@ -2,23 +2,7 @@
 title: Getting Started
 ---
 
-import { Badge } from "@astrojs/starlight/components";
-import context from "virtual:starlight-plugin-show-latest-version";
-
 Show the latest released version of your Starlight plugin in your documentation.
-
-This plugin searches for the semantic version tag within the latest release of your GitHub repository and displays it in the site title of your documentation. Following syntaxes are supported for extraction:
-
-- `X.Y.Z`
-- `vX.Y.Z`
-- `starlight-plugin-name@X.Y.Z`
-- `starlight-plugin-name@vX.Y.Z`
-
-See [version extraction algorithm](/version-extraction-algorithm/) for more information.
-
-See the blue version tag badge in the top right corner of this page as an example. It should look like this:
-
-<Badge>{context.version}</Badge>
 
 ## Prerequisites
 
@@ -72,7 +56,9 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
    export default defineConfig({
      integrations: [
        starlight({
-   +      plugins: [starlightPluginShowLatestVersion()],
+   +      plugins: [starlightPluginShowLatestVersion({
+   +        repo: 'ghost/repository',
+   +      })],
          title: 'My Docs',
        }),
      ],

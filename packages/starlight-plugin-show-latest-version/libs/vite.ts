@@ -8,10 +8,12 @@ export function vitePluginStarlightPluginShowLatestVersionConfig(
   context: StarlightPluginShowLatestVersionContext
 ): VitePlugin {
   const modules = {
-    "virtual:starlight-plugin-show-latest-version-config":
-      JSON.stringify(config),
-    "virtual:starlight-plugin-show-latest-version-context":
-      JSON.stringify(context),
+    "virtual:starlight-plugin-show-latest-version-config": `export default ${JSON.stringify(
+      config
+    )}`,
+    "virtual:starlight-plugin-show-latest-version-context": `export default ${JSON.stringify(
+      context
+    )}`,
   } satisfies Record<string, string>;
 
   const moduleResolutionMap = Object.fromEntries(

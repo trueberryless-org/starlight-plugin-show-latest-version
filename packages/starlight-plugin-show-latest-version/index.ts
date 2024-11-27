@@ -20,17 +20,16 @@ export default function starlightPluginShowLatestVersion(
   userConfig?: StarlightPluginShowLatestVersionUserConfig
 ): StarlightPlugin {
   const config = validateConfig(userConfig);
-  const contextPromise = fetchVersion(config);
 
   return {
     name: "starlight-plugin-show-latest-version",
     hooks: {
-      setup({
+      setup: async ({
         addIntegration,
         updateConfig: updateStarlightConfig,
         config: starlightConfig,
         logger,
-      }) {
+      }) => {
         /**
          * This is the entry point of your Starlight plugin.
          * The `setup` hook is called when Starlight is initialized (during the Astro `astro:config:setup` integration
@@ -55,11 +54,12 @@ export default function starlightPluginShowLatestVersion(
           },
         });
 
+        const context = await fetchVersion(config);
+
         addIntegration({
           name: "starlight-plugin-show-latest-version-integration",
           hooks: {
-            "astro:config:setup": async ({ updateConfig }) => {
-              const context = await contextPromise;
+            "astro:config:setup": ({ updateConfig }) => {
               updateConfig({
                 vite: {
                   plugins: [

@@ -3,4 +3,23 @@ title: Version Extraction Algorithm
 description: Explaination of how the version tag is being extracted from the GitHub release.
 ---
 
+import { Badge } from "@astrojs/starlight/components";
+
 The Starlight Plugin Show Latest Version plugin fetches the latest release of the repository on GitHub specified in the [`repo` configuration option](/configuration/#repo). It than extracts the `tag_name` which is the equivalent to the title of the release as you can see it on the [GitHub releases page](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/releases).
+
+The `tag_name` can be one of the following formats:
+
+- `X.Y.Z`
+- `vX.Y.Z`
+- `starlight-plugin-name@X.Y.Z`
+- `starlight-plugin-name@vX.Y.Z`
+
+This plugin will extract the `X.Y.Z` from the `tag_name`, prefix it with `v` and use it as the version tag. So in the end, all examples from above will look like this:
+
+<Badge text="vX.Y.Z" size="medium" />
+
+Here are examples of `tag_name` formats which would not be supported by the default version extraction algorithm:
+
+- `X.Y` -- no semantic versioning because it is missing the third number
+- `W.X.Y.Z` -- no semantic versioning because it has too many numbers
+- `X.Y.Z-rc.1`
