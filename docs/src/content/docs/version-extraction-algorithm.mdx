@@ -7,19 +7,54 @@ import { Badge } from "@astrojs/starlight/components";
 
 The Starlight Plugin Show Latest Version plugin fetches the latest release of the repository on GitHub specified in the [`repo` configuration option](/configuration/#repo). It than extracts the `tag_name` which is the equivalent to the title of the release as you can see it on the [GitHub releases page](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/releases).
 
-The `tag_name` can be one of the following formats:
+## Regex Pattern
 
-- `X.Y.Z`
-- `vX.Y.Z`
-- `starlight-plugin-name@X.Y.Z`
-- `starlight-plugin-name@vX.Y.Z`
+The Starlight Plugin Show Latest Version plugin uses a regex pattern to extract the version (and prerelease) from the `tag_name` of the latest release on GitHub. The default pattern is:
 
-This plugin will extract the `X.Y.Z` from the `tag_name`, prefix it with `v` and use it as the version tag. So in the end, all examples from above will look like this:
+```ts wrap
+/^(?:v|[^0-9\s]*@)?v?(?<version>[0-9]+\.[0-9]+\.[0-9]+)(?:-(?<prerelease>[0-9A-Za-z]+(?:\.[0-9A-Za-z]+)*))?(?![-.]|[^-\w.])$/;
+```
 
-<Badge text="vX.Y.Z" size="medium" />
+You can override the pattern using the [`regexPattern` configuration option](/configuration/#regexpattern).
+
+### Supported `tag_name`s
+
+The `tag_name` can be one of the following formats which will produce these badges:
+
+- `1.2.3` → <Badge text="v1.2.3" />
+- `10.20.30` → <Badge text="v10.20.30" />
+- `v1.2.3` → <Badge text="v1.2.3" />
+- `release@1.2.3` → <Badge text="v1.2.3" />
+- `name@v1.2.3` → <Badge text="v1.2.3" />
+- `package-name@1.2.3` → <Badge text="v1.2.3" />
+- `feature/branch@1.2.3` → <Badge text="v1.2.3" />
+- `1.2.3-rc.1` → <Badge text="v1.2.3-rc.1" />
+- `name@1.2.3-beta.2` → <Badge text="v1.2.3-beta.2" />
+- `v1.2.3-alpha.34` → <Badge text="v1.2.3-alpha.34" />
+- `package-name@1.2.3-rc.1` → <Badge text="v1.2.3-rc.1" />
+- `1.2.3-alpha` → <Badge text="v1.2.3-alpha" />
+- `1.2.3-beta` → <Badge text="v1.2.3-beta" />
+- `1.2.3-rc` → <Badge text="v1.2.3-rc" />
+- `1.2.3-feature.test` → <Badge text="v1.2.3-feature.test" />
+- `1.2.3-long.complex.prerelease.tag` → <Badge text="v1.2.3-long.complex.prerelease.tag" />
+
+### Invalid `tag_name`s
 
 Here are examples of `tag_name` formats which would not be supported by the default version extraction algorithm:
 
-- `X.Y` -- no semantic versioning because it is missing the third number
-- `W.X.Y.Z` -- no semantic versioning because it has too many numbers
-- `X.Y.Z-rc.1`
+- `1.2` → no semantic versioning because it is missing the third number
+- `v1.2` → no semantic versioning because it is missing the third number
+- `1.2.` → invalid version format, incomplete
+- `v1.2.` → invalid version format, incomplete
+- `1.2.3.4` → too many version segments
+- `1.2.3.` → invalid version format, trailing dot
+- `v1.2.3.4` → too many version segments
+- `1.2.3-` → invalid prerelease format
+- `1.2.3-.rc` → invalid prerelease format
+- `1.2.3-rc.` → invalid prerelease format
+- `1.2.3--rc` → invalid prerelease format
+- `random-text` → non-version string
+- `` → empty string
+- `123` → non-version string
+- `v1.2.3-special!char` → invalid version format with special characters
+- `1.2.3-pre release` → invalid version format due to space

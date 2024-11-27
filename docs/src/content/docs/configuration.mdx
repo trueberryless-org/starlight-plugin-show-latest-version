@@ -66,14 +66,18 @@ Customize the badge used to display the latest version of your Starlight plugin.
 
 The variant of the badge to use.
 
-Here you can see how the different variants look like:
+{ context.versionAvailable &&
+(<>
 
+<p>Here you can see how the different variants look like:</p>
 <Badge text={context.version} size="medium" />
 <Badge text={context.version} size="medium" variant="note" />
 <Badge text={context.version} size="medium" variant="danger" />
 <Badge text={context.version} size="medium" variant="success" />
 <Badge text={context.version} size="medium" variant="caution" />
 <Badge text={context.version} size="medium" variant="tip" />
+
+</>)}
 
 #### `size`
 
@@ -82,8 +86,23 @@ Here you can see how the different variants look like:
 
 The size of the badge to use.
 
-Here you can see how the different sizes look like:
+{ context.versionAvailable &&
+(<>
 
+<p>Here you can see how the different sizes look like:</p>
 <Badge text={context.version} size="small" />
 <Badge text={context.version} size="medium" />
 <Badge text={context.version} size="large" />
+
+</>)
+}
+
+### `regexPattern`
+
+**Type:** `string`
+
+Override the regex pattern used to extract the version from the `tag_name` of the latest release on GitHub.
+
+This is useful if your `tag_name` does not follow best practice and only necessary in rare cases. Nonetheless, it's supported by the Starlight Plugin Show Latest Version plugin.
+
+Read more about how the version tag is being extracted from the GitHub release [here](/version-extraction-algorithm).

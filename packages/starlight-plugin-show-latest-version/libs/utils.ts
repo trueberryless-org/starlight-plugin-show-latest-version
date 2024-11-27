@@ -1,3 +1,4 @@
+import { SEMVER_PATTERN } from "../consts/semantic.version.pattern";
 import type { StarlightPluginShowLatestVersionConfig } from "./config";
 import type { StarlightPluginShowLatestVersionContext } from "./types";
 
@@ -14,35 +15,46 @@ export default async function fetchVersion(
       return response.json();
     });
 
-    // Extract and normalize the version
     const tagName = data.tag_name || "";
-    const match = tagName.match(/(?:.*@)?(?<version>[0-9]+\.[0-9]+\.[0-9]+)/);
+    if (!tagName) {
+      return { versionAvailable: false }; // No release available
+    }
+
+    const match = tagName.match(config.regexPattern ?? SEMVER_PATTERN);
 
     if (!match) {
-      throw new Error(`Failed to parse version from: ${tagName}`);
+      return { versionAvailable: false }; // No valid version found
     }
 
     const versionWithoutPrefix = match.groups?.version || "";
-    const version = `v${versionWithoutPrefix}`;
-    const versionPatch = Number(versionWithoutPrefix.split(".")[2] || 0);
-    const versionMinor = Number(versionWithoutPrefix.split(".")[1] || 0);
-    const versionMajor = Number(versionWithoutPrefix.split(".")[0] || 0);
+    const [versionMajor = 0, versionMinor = 0, versionPatch = 0] =
+      versionWithoutPrefix.split(".").map(Number);
+
+    const prerelease = match.groups?.prerelease;
+    const isPrereleaseVersion = !!prerelease;
+    const version = isPrereleaseVersion
+      ? `${versionWithoutPrefix}-${prerelease}`
+      : `v${versionWithoutPrefix}`;
+
+    const prefixMatch = tagName.match(/^(.*?)v?[0-9]/);
+    const prefix = prefixMatch ? prefixMatch[1] : undefined;
+    const hasVPrefix = tagName.startsWith("v") || tagName.includes("@v");
 
     return {
+      versionAvailable: true,
       version,
       versionWithoutPrefix,
       versionPatch,
       versionMinor,
       versionMajor,
+      prerelease,
+      isPrereleaseVersion,
+      prefix,
+      hasVPrefix,
+      isStableVersion: !isPrereleaseVersion,
     };
   } catch (error) {
     console.error(error);
-    return {
-      version: "v0.0.0",
-      versionWithoutPrefix: "0.0.0",
-      versionPatch: 0,
-      versionMinor: 0,
-      versionMajor: 0,
-    }; // Fallback version
+    return { versionAvailable: false }; // Fallback: no version available
   }
 }

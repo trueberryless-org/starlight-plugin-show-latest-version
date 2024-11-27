@@ -11,6 +11,7 @@ const configSchema = z.object({
       size: z.enum(["small", "medium", "large"]).default("medium"),
     })
     .default({}),
+  regexPattern: z.string().optional(),
 });
 
 export function validateConfig(
