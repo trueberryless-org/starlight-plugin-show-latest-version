@@ -197,9 +197,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-<<<<<<< HEAD
 	export type ContentConfig = typeof import("../../src/content/config.js");
-=======
-	export type ContentConfig = typeof import("./../../src/content/config.js");
->>>>>>> 209df2f (remove export functionality)
 }
