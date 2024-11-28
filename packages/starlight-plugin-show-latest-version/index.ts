@@ -54,7 +54,7 @@ export default function starlightPluginShowLatestVersion(
           },
         });
 
-        const context = await fetchVersion(config);
+        // const context = await fetchVersion(config);
 
         addIntegration({
           name: "starlight-plugin-show-latest-version-integration",
@@ -63,10 +63,7 @@ export default function starlightPluginShowLatestVersion(
               updateConfig({
                 vite: {
                   plugins: [
-                    vitePluginStarlightPluginShowLatestVersionConfig(
-                      config,
-                      context
-                    ),
+                    vitePluginStarlightPluginShowLatestVersionConfig(config),
                   ],
                 },
               });

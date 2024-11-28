@@ -35,7 +35,6 @@ export default defineConfig({
           items: [
             { slug: "getting-started" },
             { slug: "configuration" },
-            { slug: "exports" },
             { slug: "version-extraction-algorithm" },
           ],
         },

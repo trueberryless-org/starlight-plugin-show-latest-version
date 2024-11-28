@@ -2,11 +2,14 @@
 import { logos } from 'virtual:starlight/user-images';
 import config from 'virtual:starlight/user-config';
 import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
-import context from 'virtual:starlight-plugin-show-latest-version-context';
+// import context from 'virtual:starlight-plugin-show-latest-version-context';
 import type { Props } from '../props';
 import { Badge } from '@astrojs/starlight/components';
+import fetchVersion from '../libs/utils';
 
 const { siteTitle, siteTitleHref } = Astro.props;
+
+const context = await fetchVersion(pluginConfig);
 ---
 
 <a href={siteTitleHref} class="site-title sl-flex">

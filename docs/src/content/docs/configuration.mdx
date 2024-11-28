@@ -4,7 +4,6 @@ description: An overview of all the configuration options supported by the Starl
 ---
 
 import { Badge } from "@astrojs/starlight/components";
-import context from "virtual:starlight-plugin-show-latest-version-context";
 
 The Starlight Plugin Show Latest Version plugin can be configured inside the `astro.config.mjs` configuration file of your project:
 
@@ -66,18 +65,14 @@ Customize the badge used to display the latest version of your Starlight plugin.
 
 The variant of the badge to use.
 
-{ context.versionAvailable &&
-(<>
+Here you can see how the different variants look like:
 
-<p>Here you can see how the different variants look like:</p>
-<Badge text={context.version} size="medium" />
-<Badge text={context.version} size="medium" variant="note" />
-<Badge text={context.version} size="medium" variant="danger" />
-<Badge text={context.version} size="medium" variant="success" />
-<Badge text={context.version} size="medium" variant="caution" />
-<Badge text={context.version} size="medium" variant="tip" />
-
-</>)}
+<Badge text={"v1.2.3"} size="medium" />
+<Badge text={"v1.2.3"} size="medium" variant="note" />
+<Badge text={"v1.2.3"} size="medium" variant="danger" />
+<Badge text={"v1.2.3"} size="medium" variant="success" />
+<Badge text={"v1.2.3"} size="medium" variant="caution" />
+<Badge text={"v1.2.3"} size="medium" variant="tip" />
 
 #### `size`
 
@@ -86,16 +81,11 @@ The variant of the badge to use.
 
 The size of the badge to use.
 
-{ context.versionAvailable &&
-(<>
+Here you can see how the different sizes look like:
 
-<p>Here you can see how the different sizes look like:</p>
-<Badge text={context.version} size="small" />
-<Badge text={context.version} size="medium" />
-<Badge text={context.version} size="large" />
-
-</>)
-}
+<Badge text={"v1.2.3"} size="small" />
+<Badge text={"v1.2.3"} size="medium" />
+<Badge text={"v1.2.3"} size="large" />
 
 ### `regexPattern`
 

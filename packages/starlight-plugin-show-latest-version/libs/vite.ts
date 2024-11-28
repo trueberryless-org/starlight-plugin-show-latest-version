@@ -4,16 +4,16 @@ import type { StarlightPluginShowLatestVersionConfig } from "..";
 import type { StarlightPluginShowLatestVersionContext } from "./types";
 
 export function vitePluginStarlightPluginShowLatestVersionConfig(
-  config: StarlightPluginShowLatestVersionConfig,
-  context: StarlightPluginShowLatestVersionContext
+  config: StarlightPluginShowLatestVersionConfig
+  // context: StarlightPluginShowLatestVersionContext
 ): VitePlugin {
   const modules = {
     "virtual:starlight-plugin-show-latest-version-config": `export default ${JSON.stringify(
       config
     )}`,
-    "virtual:starlight-plugin-show-latest-version-context": `export default ${JSON.stringify(
-      context
-    )}`,
+    // "virtual:starlight-plugin-show-latest-version-context": `export default ${JSON.stringify(
+    //   context
+    // )}`,
   } satisfies Record<string, string>;
 
   const moduleResolutionMap = Object.fromEntries(

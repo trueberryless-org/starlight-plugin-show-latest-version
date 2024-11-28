@@ -4,29 +4,7 @@ description: Get a live demonstration of the Starlight Plugin Show Latest Versio
 ---
 
 import { Badge } from "@astrojs/starlight/components";
-import context from "virtual:starlight-plugin-show-latest-version-context";
 
-{context.versionAvailable &&
-(<>
+See the blue version tag badge in the top right corner of this page as an example. It should look something like this:
 
-<p>
-  See the blue version tag badge in the top right corner of this page as an
-  example. It should look like this:
-</p>
-<br />
-<Badge text={context.version} size="medium" />
-
-</>)}
-
-{!context.versionAvailable &&
-(<>
-
-<p>
-  Uhh... something went wrong! <br /> No, not really.
-</p>
-<p>
-  You just currently are not able to see any demo because the version of the
-  plugin could not be determined. Try again later. :)
-</p>
-
-</>)}
+<Badge text={"v1.2.3"} size="medium" />
