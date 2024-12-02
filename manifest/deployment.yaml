@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: starlight-plugin-show-latest-version
-  namespace: starlight-plugin-show-latest-version
+  name: <%= repositoryName %>
+  namespace: <%= repositoryName %>
   labels:
-    app: starlight-plugin-show-latest-version
+    app: <%= repositoryName %>
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: starlight-plugin-show-latest-version
+      app: <%= repositoryName %>
   template:
     metadata:
       labels:
-        app: starlight-plugin-show-latest-version
+        app: <%= repositoryName %>
     spec:
       containers:
-        - name: starlight-plugin-show-latest-version
-          image: "trueberryless/starlight-plugin-show-latest-version"
+        - name: <%= repositoryName %>
+          image: "trueberryless/<%= repositoryName %>"
           imagePullPolicy: Always
