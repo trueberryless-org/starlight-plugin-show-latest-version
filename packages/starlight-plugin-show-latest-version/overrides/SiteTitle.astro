@@ -1,15 +1,10 @@
 ---
 import { logos } from 'virtual:starlight/user-images';
 import config from 'virtual:starlight/user-config';
-import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
-// import context from 'virtual:starlight-plugin-show-latest-version-context';
 import type { Props } from '../props';
-import { Badge } from '@astrojs/starlight/components';
-import fetchVersion from '../libs/utils';
+import VersionBadge from '../components/VersionBadge.astro';
 
 const { siteTitle, siteTitleHref } = Astro.props;
-
-const context = await fetchVersion(pluginConfig);
 ---
 
 <a href={siteTitleHref} class="site-title sl-flex">
@@ -39,13 +34,7 @@ const context = await fetchVersion(pluginConfig);
 	<span class:list={{ 'sr-only': config.logo?.replacesTitle }}>
 		{siteTitle}
 	</span>
-  {context.versionAvailable && (
-    <starlight-plugin-show-latest-version>
-      <a href="https://github.com/trueberryless-org/starlight-cooler-credit/releases/latest" class="starlight-plugin-show-latest-version-link">
-        <Badge text={context.version} variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} class='starlight-plugin-show-latest-version-badge'/>
-      </a>
-    </starlight-plugin-show-latest-version>
-  )}
+  <VersionBadge />
 </a>
 
 
@@ -66,9 +55,4 @@ const context = await fetchVersion(pluginConfig);
 		object-fit: contain;
 		object-position: 0 50%;
 	}
-  .starlight-plugin-show-latest-version-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
 </style>

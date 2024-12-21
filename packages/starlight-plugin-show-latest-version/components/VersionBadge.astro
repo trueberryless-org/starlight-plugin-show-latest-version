@@ -1,0 +1,38 @@
+---
+---
+
+<div id="starlight-plugin-show-latest-version"></div>
+
+<script>
+  import fetchVersion from '../libs/utils';
+  import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
+
+  (async () => {
+    let version = await fetchVersion(pluginConfig);
+    
+    const container = document.querySelector('#starlight-plugin-show-latest-version');
+
+    if (version.versionAvailable) {
+      console.log("got version");
+      if (container) {
+        container.innerHTML = `
+          <a href="https://github.com/${pluginConfig.repo}/releases" id="starlight-plugin-show-latest-version-link">
+            <Badge text="${version.version}" size="${pluginConfig.badge.size}" variant="${pluginConfig.badge.variant}" />
+          </a>
+        `;
+      }
+    }
+  })();
+</script>
+
+<style>
+  #starlight-plugin-show-latest-version-link {
+    display: none;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .visible {
+    display: flex !important;
+  }
+</style>
