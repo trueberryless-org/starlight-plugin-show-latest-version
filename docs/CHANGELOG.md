@@ -1,5 +1,16 @@
 # starlight-plugin-show-latest-version-docs
 
+## 0.2.0
+
+### Minor Changes
+
+- [#12](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/12) [`c4c5257`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/c4c525794ba68fe9f33d16194c6802632f5cba77) Thanks [@trueberryless](https://github.com/trueberryless)! - Update to Astro 5 and Starlight 0.30 + Starlight Plugin Show Latest Version Dependency
+
+### Patch Changes
+
+- Updated dependencies [[`c4c5257`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/c4c525794ba68fe9f33d16194c6802632f5cba77), [`e29e231`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/e29e2318eb36400ee5752017487518f07d091e31)]:
+  - starlight-plugin-show-latest-version@0.2.0
+
 ## 0.1.1
 
 ### Patch Changes
