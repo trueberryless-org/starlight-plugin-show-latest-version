@@ -20,7 +20,10 @@ export default defineConfig({
       plugins: [
         starlightLinksValidator(),
         starlightPluginShowLatestVersion({
-          repo: "trueberryless-org/starlight-plugin-show-latest-version",
+          source: {
+            type: "github",
+            slug: "trueberryless-org/starlight-plugin-show-latest-version",
+          },
         }),
         starlightPluginsDocsComponents({
           pluginName: "starlight-plugin-show-latest-version",

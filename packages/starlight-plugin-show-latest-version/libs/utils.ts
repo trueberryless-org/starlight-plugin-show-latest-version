@@ -1,12 +1,12 @@
 import { SEMVER_PATTERN } from "../consts/semantic.version.pattern";
 import type { StarlightPluginShowLatestVersionConfig } from "./config";
 import type { StarlightPluginShowLatestVersionContext } from "./types";
+import { latestReleaseApis, extractVersion } from "../libs/urlBuilder";
 
 export default async function fetchVersion(
   config: StarlightPluginShowLatestVersionConfig
 ): Promise<StarlightPluginShowLatestVersionContext> {
-  const repo = config.repo;
-  const apiUrl = `https://api.github.com/repos/${repo}/releases/latest`;
+  const apiUrl = latestReleaseApis[config.source.type](config.source.slug);
 
   try {
     const data = await fetch(apiUrl).then((response) => {
@@ -15,7 +15,7 @@ export default async function fetchVersion(
       return response.json();
     });
 
-    const tagName = data.tag_name || "";
+    const tagName = extractVersion[config.source.type](data);
     if (!tagName) {
       return { versionAvailable: false }; // No release available
     }
@@ -33,7 +33,7 @@ export default async function fetchVersion(
     const prerelease = match.groups?.prerelease;
     const isPrereleaseVersion = !!prerelease;
     const version = isPrereleaseVersion
-      ? `${versionWithoutPrefix}-${prerelease}`
+      ? `v${versionWithoutPrefix}-${prerelease}`
       : `v${versionWithoutPrefix}`;
 
     const prefixMatch = tagName.match(/^(.*?)v?[0-9]/);

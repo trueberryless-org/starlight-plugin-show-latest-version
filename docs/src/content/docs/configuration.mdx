@@ -4,6 +4,7 @@ description: An overview of all the configuration options supported by the Starl
 ---
 
 import { Badge } from "@astrojs/starlight/components";
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 The Starlight Plugin Show Latest Version plugin can be configured inside the `astro.config.mjs` configuration file of your project:
 
@@ -31,25 +32,94 @@ export default defineConfig({
 
 The Starlight Plugin Show Latest Version plugin accepts the following configuration options:
 
-### `repo`
+### `source`
+
+**Type:** `{ type: "npm" | "github" | "gitlab", slug: string }`  
+**Required**
+
+Provide the source where your package is released. 
+This is necessary to fetch the latest version of your package.
+
+<div id="repo">
+:::note
+Please note that the `repo` configuration has been <span style="color: var(--sl-color-red)">removed</span> in favour of the new `source` configuration object. To upgrade the plugin, please follow the [upgrade guide](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/releases/tag/starlight-plugin-show-latest-version%400.3.0).
+:::
+</div>
+
+#### `type`
+
+**Type:** `"npm" | "github" | "gitlab"`  
+**Default:** `"npm"`
+
+The type of the source where your package is released. 
+You can choose between `"npm"`, `"github"` or `"gitlab"`. This allows you to better customise the plugin to where you publish and release your packages.
+
+#### `slug`
 
 **Type:** `string`  
 **Required**
 
-Provide the repository slug where your Starlight plugin is released.  
-This slug must follow the syntax:
+The slug of the source where your package is released.
+Depending on the [source `type`](#type), the slug must follow the syntax:
 
-```ansi
-{[34mowner[0m}/{[36mrepo[0m}
-```
+<Tabs>
+  <TabItem label="NPM">
+  
+  ```ansi
+  {[36mpackage[0m}
+  ```
 
-Here is an example for [this exact repo](https://github.com/trueberryless-org/starlight-plugin-show-latest-version):
+  Here is an example for [this exact package](https://www.npmjs.com/package/starlight-plugin-show-latest-version):
 
-```ts
-starlightPluginShowLatestVersion({
-    repo: "trueberryless-org/starlight-plugin-show-latest-version",
-}),
-```
+  ```ts
+  starlightPluginShowLatestVersion({
+    source: {
+      type: "npm",
+      slug: "starlight-plugin-show-latest-version",
+    },
+  }),
+  ```
+  
+  
+  </TabItem>
+  <TabItem label="GitHub">
+  
+  ```ansi
+  {[34mowner[0m}/{[36mrepo[0m}
+  ```
+
+  Here is an example for [this exact repo](https://github.com/trueberryless-org/starlight-plugin-show-latest-version):
+
+  ```ts
+  starlightPluginShowLatestVersion({
+    source: {
+      type: "github",
+      slug: "trueberryless-org/starlight-plugin-show-latest-version",
+    },
+  }),
+  ```
+  
+  </TabItem>
+  <TabItem label="GitLab">
+  
+  ```ansi
+  {[34mowner[0m}/{[36mrepo[0m}
+  ```
+
+  Here is an example for [the GitLab repo](https://gitlab.com/gitlab-org/gitlab):
+
+  ```ts
+  starlightPluginShowLatestVersion({
+    source: {
+      type: "gitlab",
+      slug: "gitlab-org/gitlab",
+    },
+  }),
+  ```
+  
+  </TabItem>
+</Tabs>
+
 
 ### `badge`
 
