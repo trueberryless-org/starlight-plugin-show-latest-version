@@ -2,7 +2,10 @@ import { AstroError } from "astro/errors";
 import { z } from "astro/zod";
 
 const configSchema = z.object({
-  repo: z.string(),
+  source: z.object({
+    type: z.enum(["github", "gitlab", "npm"]).default("npm"),
+    slug: z.string().min(1, "Slug cannot be empty"),
+  }),
   badge: z
     .object({
       variant: z

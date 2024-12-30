@@ -5,10 +5,13 @@
 
 <script>
   import fetchVersion from '../libs/utils';
+  import { releasePageUrls } from "../libs/urlBuilder";
   import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
 
   (async () => {
     let version = await fetchVersion(pluginConfig);
+    const sourceUrl = releasePageUrls[pluginConfig.source.type](pluginConfig.source.slug);
+    console.log("sourceUrl", sourceUrl);
     
     const container = document.querySelector('#starlight-plugin-show-latest-version');
 
@@ -16,7 +19,7 @@
       console.log("got version");
       if (container) {
         container.innerHTML = `
-          <a href="https://github.com/${pluginConfig.repo}/releases" id="starlight-plugin-show-latest-version-link">
+          <a href="${sourceUrl}" id="starlight-plugin-show-latest-version-link">
             <span class="sl-badge ${pluginConfig.badge.variant} ${pluginConfig.badge.size} starlight-plugin-show-latest-version-badge">${version.version}</span>
           </a>
         `;
