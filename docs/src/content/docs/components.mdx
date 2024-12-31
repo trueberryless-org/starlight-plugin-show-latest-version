@@ -1,0 +1,44 @@
+---
+title: Components
+description: An overview of all the components exported by the Starlight Plugin Show Latest Version plugin.
+---
+
+Here you can find a list of all the components which are exported by the `starlight-plugin-show-latest-version` package.
+
+import Preview from "../../components/component-preview.astro";
+
+### Version
+
+import Version from "starlight-plugin-show-latest-version/components/Version.astro";
+
+The `Version` component is used to display the latest version in a raw format. It doesn't apply any styling, just the version string in a `span` element.
+
+```mdx
+import Version from "starlight-plugin-show-latest-version/components/Version.astro";
+
+<Version server:defer />;
+```
+
+<Preview>
+
+<Version server:defer />
+
+</Preview>
+
+### VersionBadge
+
+import VersionBadge from "starlight-plugin-show-latest-version/components/VersionBadge.astro";
+
+The `VersionBadge` component is used to display the latest version in a badge format. This component is also used in the site title if you enable [`showInSiteTitle`](/configuration#showinsitetitle).
+
+```mdx
+import VersionBadge from "starlight-plugin-show-latest-version/components/VersionBadge.astro";
+
+<VersionBadge server:defer />;
+```
+
+<Preview>
+
+<VersionBadge server:defer />
+
+</Preview>
