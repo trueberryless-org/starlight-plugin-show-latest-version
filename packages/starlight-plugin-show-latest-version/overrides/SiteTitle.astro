@@ -34,7 +34,7 @@ const { siteTitle, siteTitleHref } = Astro.props;
 	<span class:list={{ 'sr-only': config.logo?.replacesTitle }}>
 		{siteTitle}
 	</span>
-  <VersionBadge />
+  <VersionBadge server:defer/>
 </a>
 
 
