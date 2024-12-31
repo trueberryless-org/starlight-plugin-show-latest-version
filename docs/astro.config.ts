@@ -26,6 +26,7 @@ export default defineConfig({
             type: "github",
             slug: "trueberryless-org/starlight-plugin-show-latest-version",
           },
+          showInSiteTitle: true,
         }),
         starlightPluginsDocsComponents({
           pluginName: "starlight-plugin-show-latest-version",

@@ -46,11 +46,13 @@ export default function starlightPluginShowLatestVersion(
         updateStarlightConfig({
           components: {
             ...starlightConfig.components,
-            ...overrideStarlightComponent(
-              starlightConfig.components,
-              logger,
-              "SiteTitle"
-            ),
+            ...(config.showInSiteTitle
+              ? overrideStarlightComponent(
+                  starlightConfig.components,
+                  logger,
+                  "SiteTitle"
+                )
+              : {}),
           },
         });
 
