@@ -120,7 +120,6 @@ Depending on the [source `type`](#type), the slug must follow the syntax:
   </TabItem>
 </Tabs>
 
-
 ### `badge`
 
 **Type:** `object`  
@@ -156,6 +155,43 @@ Here you can see how the different sizes look like:
 <Badge text={"v1.2.3"} size="small" />
 <Badge text={"v1.2.3"} size="medium" />
 <Badge text={"v1.2.3"} size="large" />
+
+### `showInSiteTitle`
+
+**Type:** `boolean`  
+**Default:** `false`
+
+Whether to show the latest version of your Starlight plugin in the site title.
+
+:::note
+If you enable this feature, you will have to add an [Astro adapter](https://astro.build/integrations/?search=&categories%5B%5D=adapters) because the plugin override now uses [`server:defer`](https://docs.astro.build/en/guides/server-islands/) in order to fetch the latest version of your package.
+
+For example, you can add the [Node adapter](https://docs.astro.build/en/guides/integrations/node/) by running one of the following commands:
+
+<Tabs syncKey="pkg">
+  <TabItem label="npm">
+  
+  ```sh
+  npx astro add node
+  ```
+  
+  </TabItem>
+  <TabItem label="pnpm">
+  
+  ```sh
+  pnpm astro add node
+  ```
+  
+  </TabItem>
+  <TabItem label="yarn">
+  
+  ```sh
+  yarn astro add node
+  ```
+  
+  </TabItem>
+</Tabs>
+:::
 
 ### `regexPattern`
 

@@ -2,7 +2,7 @@
 title: Getting Started
 ---
 
-Show the latest released version of your Starlight plugin in your documentation.
+Show the latest released version of your package in your documentation.
 
 ## Prerequisites
 
@@ -57,7 +57,9 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
      integrations: [
        starlight({
    +      plugins: [starlightPluginShowLatestVersion({
-   +        repo: 'ghost/repository',
+   +        source: {
+   +          slug: "starlight-plugin-show-latest-version",
+   +        },
    +      })],
          title: 'My Docs',
        }),
