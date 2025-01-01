@@ -1,5 +1,20 @@
 # starlight-plugin-show-latest-version-docs
 
+## 0.3.0
+
+### Minor Changes
+
+- [#16](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/16) [`3de9964`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/3de9964f4860928c42754c94e8be1c246b1cc674) Thanks [@trueberryless](https://github.com/trueberryless)! - Add `@astrojs/node` adapter
+
+- [#16](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/16) [`bdc461c`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/bdc461cc67ff9093795f47127db15952a22c9e22) Thanks [@trueberryless](https://github.com/trueberryless)! - Update documentation for [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer), [server adapters](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) and component exported by the plugin.
+
+### Patch Changes
+
+- [#14](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/14) [`522ac54`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/522ac548e141d809e31c73a14ae368aad5a9b1ee) Thanks [@trueberryless](https://github.com/trueberryless)! - Update documentation for new `source` configuration
+
+- Updated dependencies [[`3de9964`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/3de9964f4860928c42754c94e8be1c246b1cc674), [`3de9964`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/3de9964f4860928c42754c94e8be1c246b1cc674), [`8b0c933`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/8b0c933c19b1fc1ed035e85a45168c0ec1b4f3a7), [`ae72935`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/ae72935cbdca23c5e7d880d4f0c82c57c328e874)]:
+  - starlight-plugin-show-latest-version@0.3.0
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,44 @@
 # starlight-plugin-show-latest-version
 
+## 0.3.0
+
+### Minor Changes
+
+- [#16](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/16) [`3de9964`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/3de9964f4860928c42754c94e8be1c246b1cc674) Thanks [@trueberryless](https://github.com/trueberryless)! - Use [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) in the `SiteTitle.astro` override component if [`showInSiteTitle`](https://starlight-plugin-show-latest-version.trueberryless.org/configuration/#showinsitetitle) is set to `"deferred"`.
+
+  ⚠️ **BREAKING CHANGE:** You now have to use some [server adapter](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) if you set [`showInSiteTitle`](https://starlight-plugin-show-latest-version.trueberryless.org/configuration/#showinsitetitle) to `"deferred"`.
+
+  If you set the [`showInSiteTitle` configuration option](https://starlight-plugin-show-latest-version.trueberryless.org/configuration/#showinsitetitle) to `"deferred"`, you have to add a [server adapter](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) because the plugin override now uses [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) in order to fetch the latest version on-demand.
+
+  Read more about Server Islands in [this blog post](https://astro.build/blog/future-of-astro-server-islands/) or the [Astro documentation](https://docs.astro.build/en/guides/server-islands/).
+
+- [#14](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/14) [`8b0c933`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/8b0c933c19b1fc1ed035e85a45168c0ec1b4f3a7) Thanks [@trueberryless](https://github.com/trueberryless)! - Add version support for NPM and GitLab.
+
+  ⚠️ **BREAKING CHANGE:** The configuration interface changed.
+
+  Please follow the steps below to use the plugin like before or read the [documentation](https://starlight-plugin-show-latest-version.trueberryless.org/configuration/#source) for the newly defined API.
+
+  Change the removed `repo` configuration to the new [`source`](https://starlight-plugin-show-latest-version.trueberryless.org/configuration/#source) configuration object:
+
+  ```diff
+   // astro.config.ts
+   starlightPluginShowLatestVersion({
+  -  repo: "${slug}",
+  +  source: {
+  +    type: "github",
+  +    slug: "${slug}",
+  +  },
+   }),
+  ```
+
+  Note that you can now use `"npm"`, `"github"` or `"gitlab"` as the source type. This means that the plugin can be better customised to where you publish and release your packages.
+
+### Patch Changes
+
+- [#16](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/16) [`3de9964`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/3de9964f4860928c42754c94e8be1c246b1cc674) Thanks [@trueberryless](https://github.com/trueberryless)! - Make override of Starlight `SiteTitle.astro` optional. You now have to opt-in by setting the new [`showInSiteTitle`](https://starlight-plugin-show-latest-version.trueberryless.org/configuration/#showinsitetitle) configuration option to `"true"` because it does not get overridden by default.
+
+- [#16](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/16) [`ae72935`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/ae72935cbdca23c5e7d880d4f0c82c57c328e874) Thanks [@trueberryless](https://github.com/trueberryless)! - Add simple [fallback content](https://docs.astro.build/en/guides/server-islands/#server-island-fallback-content) for SiteTitle override Version Badge
+
 ## 0.2.0
 
 ### Minor Changes
