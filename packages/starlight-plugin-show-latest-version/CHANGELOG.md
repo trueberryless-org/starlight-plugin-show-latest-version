@@ -2,7 +2,7 @@
 
 ## 0.3.0
 
-Special thanks to @HiDeoo for their valuable feedback, which helped shape many of the improvements in this release.
+Special thanks to [@HiDeoo](https://github.com/HiDeoo) for their valuable feedback, which helped shape many of the improvements in this release.
 
 ### Minor Changes
 
