@@ -164,7 +164,7 @@ Here you can see how the different sizes look like:
 Whether to show the latest version of your Starlight plugin in the site title.
 
 :::note
-If you enable this feature, you will have to add an [Astro adapter](https://astro.build/integrations/?search=&categories%5B%5D=adapters) because the plugin override now uses [`server:defer`](https://docs.astro.build/en/guides/server-islands/) in order to fetch the latest version of your package.
+If you enable this feature, you will have to add a [server adapter](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) because the plugin override now uses [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) in order to fetch the latest version of your package.
 
 For example, you can add the [Node adapter](https://docs.astro.build/en/guides/integrations/node/) by running one of the following commands:
 

@@ -2,12 +2,10 @@
 "starlight-plugin-show-latest-version": minor
 ---
 
-Use `server:defer` in the `SiteTitle.astro` override component.
+Use [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) in the `SiteTitle.astro` override component.
 
-⚠️ **BREAKING CHANGE:** You now have to use some [Astro adapter](https://astro.build/integrations/?search=&categories%5B%5D=adapters) in order to use the override.
+⚠️ **BREAKING CHANGE:** You now have to use some [server adapter](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) in order to use the override.
 
-If you set the `showInSiteTitle` configuration option to `true`, you have to add an Astro adapter because the plugin override now uses `server:defer` in order to fetch the latest version as a second HTTP request. 
-
-Read more about Astro adapters in the [Adapter API](https://docs.astro.build/en/reference/adapter-reference/), the [configuration](https://docs.astro.build/en/reference/configuration-reference/#adapter) or the [configuration of this plugin](https://starlight-plugin-show-latest-version.trueberryless.org/configuration/#showinsitetitle).
+If you set the [`showInSiteTitle` configuration option](https://starlight-plugin-show-latest-version.trueberryless.org/configuration/#showinsitetitle) to `true`, you have to add a [server adapter](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) because the plugin override now uses [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) in order to fetch the latest version on-demand.
 
 Read more about Server Islands in [this blog post](https://astro.build/blog/future-of-astro-server-islands/) or the [Astro documentation](https://docs.astro.build/en/guides/server-islands/).
