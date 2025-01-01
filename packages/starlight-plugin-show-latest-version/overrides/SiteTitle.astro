@@ -36,9 +36,14 @@ const { siteTitle, siteTitleHref } = Astro.props;
 	<span class:list={{ 'sr-only': config.logo?.replacesTitle }}>
 		{siteTitle}
 	</span>
-  <VersionBadge server:defer>
-    <Badge text={"      "} variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} slot="fallback" />
-  </VersionBadge>
+  {pluginConfig.showInSiteTitle === "true" && (
+    <VersionBadge />
+  )}
+  {pluginConfig.showInSiteTitle === "deferred" && (
+    <VersionBadge server:defer>
+      <Badge text={"      "} variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} slot="fallback" />
+    </VersionBadge>
+  )}
 </a>
 
 

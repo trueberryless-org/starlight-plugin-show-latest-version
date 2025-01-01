@@ -32,7 +32,7 @@ export default function starlightPluginShowLatestVersion(
         updateStarlightConfig({
           components: {
             ...starlightConfig.components,
-            ...(config.showInSiteTitle
+            ...(config.showInSiteTitle !== "false"
               ? overrideStarlightComponent(
                   starlightConfig.components,
                   logger,

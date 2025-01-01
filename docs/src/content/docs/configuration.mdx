@@ -158,13 +158,14 @@ Here you can see how the different sizes look like:
 
 ### `showInSiteTitle`
 
-**Type:** `boolean`  
-**Default:** `false`
+**Type:** `"false" | "true" | "deferred"`  
+**Default:** `"false"`
 
-Whether to show the latest version of your Starlight plugin in the site title.
+Whether to show the latest version of your Starlight plugin in the site title. By default, the plugin does not show the latest version in the site title.
 
-:::note
-If you enable this feature, you will have to add a [server adapter](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) because the plugin override now uses [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) in order to fetch the latest version of your package.
+If you set this option to `"true"`, the latest version will be displayed in the site title and the badge will be rendered at build time, no further configuration needed.
+
+If you set this option to `"deferred"`, the latest version will be displayed in the site title and the badge will be rendered at runtime. This is useful if you want to fetch the latest version on-demand. However, you will have to add a [server adapter](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) because the plugin override now uses [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) in order to fetch the latest version of your package.
 
 For example, you can add the [Node adapter](https://docs.astro.build/en/guides/integrations/node/) by running one of the following commands:
 
@@ -191,7 +192,6 @@ For example, you can add the [Node adapter](https://docs.astro.build/en/guides/i
   
   </TabItem>
 </Tabs>
-:::
 
 ### `regexPattern`
 
