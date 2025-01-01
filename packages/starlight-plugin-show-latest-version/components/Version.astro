@@ -2,6 +2,8 @@
 import fetchVersion from '../libs/utils';
 import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
 
+Astro.response.headers.set('Cache-Control', 'public, max-age=43200');
+
 const version = await fetchVersion(pluginConfig);
 ---
 
