@@ -4,6 +4,8 @@ import starlightLinksValidator from "starlight-links-validator";
 import starlightPluginShowLatestVersion from "starlight-plugin-show-latest-version";
 import starlightPluginsDocsComponents from "@trueberryless-org/starlight-plugins-docs-components";
 
+import node from "@astrojs/node";
+
 export default defineConfig({
   integrations: [
     starlight({
@@ -24,6 +26,7 @@ export default defineConfig({
             type: "github",
             slug: "trueberryless-org/starlight-plugin-show-latest-version",
           },
+          showInSiteTitle: "deferred",
         }),
         starlightPluginsDocsComponents({
           pluginName: "starlight-plugin-show-latest-version",
@@ -38,6 +41,7 @@ export default defineConfig({
           items: [
             { slug: "getting-started" },
             { slug: "configuration" },
+            { slug: "components" },
             { slug: "version-extraction-algorithm" },
           ],
         },
@@ -52,4 +56,7 @@ export default defineConfig({
       },
     }),
   ],
+  adapter: node({
+    mode: "standalone",
+  }),
 });

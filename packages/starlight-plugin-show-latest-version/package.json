@@ -1,7 +1,7 @@
 {
   "name": "starlight-plugin-show-latest-version",
   "version": "0.2.0",
-  "description": "Show the latest released version of your Starlight plugin in your documentation.",
+  "description": "Show the latest released version of your package in your documentation.",
   "keywords": [
     "starlight",
     "docs",
@@ -20,6 +20,8 @@
   "type": "module",
   "exports": {
     ".": "./index.ts",
+    "./components/Version.astro": "./components/Version.astro",
+    "./components/VersionBadge.astro": "./components/VersionBadge.astro",
     "./overrides/SiteTitle.astro": "./overrides/SiteTitle.astro",
     "./package.json": "./package.json"
   },

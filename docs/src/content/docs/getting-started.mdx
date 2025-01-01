@@ -2,7 +2,7 @@
 title: Getting Started
 ---
 
-Show the latest released version of your Starlight plugin in your documentation.
+Show the latest released version of your package in your documentation.
 
 ## Prerequisites
 
@@ -57,7 +57,9 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
      integrations: [
        starlight({
    +      plugins: [starlightPluginShowLatestVersion({
-   +        repo: 'ghost/repository',
+   +        source: {
+   +          slug: "starlight-plugin-show-latest-version",
+   +        },
    +      })],
          title: 'My Docs',
        }),
@@ -65,7 +67,9 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
    })
    ```
 
-3. [Start the development server](https://starlight.astro.build/getting-started/#start-the-development-server) to preview the plugin in action.
+3. You can now use the [plugin components](/components) in your Astro components or set the [`showInSiteTitle`](/configuration#showinsitetitle) option to display the latest version in the site title.
+
+4. [Start the development server](https://starlight.astro.build/getting-started/#start-the-development-server) to preview the plugin in action.
 
 </Steps>
 

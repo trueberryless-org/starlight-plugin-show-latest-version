@@ -1,111 +1,32 @@
 ---
+import { Badge } from '@astrojs/starlight/components';
+import fetchVersion from '../libs/utils';
+import { releasePageUrls } from "../libs/urlBuilder";
+import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
+
+const version = await fetchVersion(pluginConfig);
+const sourceUrl = releasePageUrls[pluginConfig.source.type](pluginConfig.source.slug);
 ---
 
-<div id="starlight-plugin-show-latest-version"></div>
+{version.versionAvailable && (
+  <starlight-plugin-show-latest-version>
+    <a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
+      <Badge text={version.version} variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} id='starlight-plugin-show-latest-version-badge'/>
+    </a>
+  </starlight-plugin-show-latest-version>
+)}
+{!version.versionAvailable && (
+  <starlight-plugin-show-latest-version>
+    <a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
+      <Badge text="N/A" variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} id='starlight-plugin-show-latest-version-badge'/>
+    </a>
+  </starlight-plugin-show-latest-version>
+)}
 
-<script>
-  import fetchVersion from '../libs/utils';
-  import { releasePageUrls } from "../libs/urlBuilder";
-  import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
-
-  (async () => {
-    let version = await fetchVersion(pluginConfig);
-    const sourceUrl = releasePageUrls[pluginConfig.source.type](pluginConfig.source.slug);
-    console.log("sourceUrl", sourceUrl);
-    
-    const container = document.querySelector('#starlight-plugin-show-latest-version');
-
-    if (version.versionAvailable) {
-      console.log("got version");
-      if (container) {
-        container.innerHTML = `
-          <a href="${sourceUrl}" id="starlight-plugin-show-latest-version-link">
-            <span class="sl-badge ${pluginConfig.badge.variant} ${pluginConfig.badge.size} starlight-plugin-show-latest-version-badge">${version.version}</span>
-          </a>
-        `;
-      }
-    }
-  })();
-</script>
-
-<style is:global>
+<style>
   #starlight-plugin-show-latest-version-link {
     display: flex;
     align-items: center;
     text-decoration: none;
-  }
-
-  .starlight-plugin-show-latest-version-badge.sl-badge {
-      display: inline-block;
-      border: 1px solid var(--sl-color-border-badge);
-      border-radius: .25rem;
-      font-family: var(--sl-font-system-mono);
-      line-height: normal;
-      color: var(--sl-color-text-badge);
-      background-color: var(--sl-color-bg-badge);
-      overflow-wrap: anywhere
-  }
-
-  .sidebar-content .starlight-plugin-show-latest-version-badge.sl-badge {
-      line-height: 1;
-      font-size: var(--sl-text-xs);
-      padding: .125rem .375rem
-  }
-
-  .sidebar-content a[aria-current=page]>.starlight-plugin-show-latest-version-badge.sl-badge {
-      --sl-color-bg-badge: transparent;
-      --sl-color-border-badge: currentColor;
-      color: inherit
-  }
-
-  .starlight-plugin-show-latest-version-badge.default {
-      --sl-color-bg-badge: var(--sl-badge-default-bg);
-      --sl-color-border-badge: var(--sl-badge-default-border);
-      --sl-color-text-badge: var(--sl-badge-default-text)
-  }
-
-  .starlight-plugin-show-latest-version-badge.note {
-      --sl-color-bg-badge: var(--sl-badge-note-bg);
-      --sl-color-border-badge: var(--sl-badge-note-border);
-      --sl-color-text-badge: var(--sl-badge-note-text)
-  }
-
-  .starlight-plugin-show-latest-version-badge.danger {
-      --sl-color-bg-badge: var(--sl-badge-danger-bg);
-      --sl-color-border-badge: var(--sl-badge-danger-border);
-      --sl-color-text-badge: var(--sl-badge-danger-text)
-  }
-
-  .starlight-plugin-show-latest-version-badge.success {
-      --sl-color-bg-badge: var(--sl-badge-success-bg);
-      --sl-color-border-badge: var(--sl-badge-success-border);
-      --sl-color-text-badge: var(--sl-badge-success-text)
-  }
-
-  .starlight-plugin-show-latest-version-badge.tip {
-      --sl-color-bg-badge: var(--sl-badge-tip-bg);
-      --sl-color-border-badge: var(--sl-badge-tip-border);
-      --sl-color-text-badge: var(--sl-badge-tip-text)
-  }
-
-  .starlight-plugin-show-latest-version-badge.caution {
-      --sl-color-bg-badge: var(--sl-badge-caution-bg);
-      --sl-color-border-badge: var(--sl-badge-caution-border);
-      --sl-color-text-badge: var(--sl-badge-caution-text)
-  }
-
-  .starlight-plugin-show-latest-version-badge.small {
-      font-size: var(--sl-text-xs);
-      padding: .125rem .25rem
-  }
-
-  .starlight-plugin-show-latest-version-badge.medium {
-      font-size: var(--sl-text-sm);
-      padding: .175rem .35rem
-  }
-
-  .starlight-plugin-show-latest-version-badge.large {
-      font-size: var(--sl-text-base);
-      padding: .225rem .45rem
   }
 </style>

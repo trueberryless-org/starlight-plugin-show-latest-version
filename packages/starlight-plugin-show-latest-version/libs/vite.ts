@@ -11,9 +11,6 @@ export function vitePluginStarlightPluginShowLatestVersionConfig(
     "virtual:starlight-plugin-show-latest-version-config": `export default ${JSON.stringify(
       config
     )}`,
-    // "virtual:starlight-plugin-show-latest-version-context": `export default ${JSON.stringify(
-    //   context
-    // )}`,
   } satisfies Record<string, string>;
 
   const moduleResolutionMap = Object.fromEntries(

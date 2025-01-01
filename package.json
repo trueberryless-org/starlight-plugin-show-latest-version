@@ -2,7 +2,7 @@
   "name": "starlight-plugin-show-latest-version-monorepo",
   "version": "1.0.0",
   "private": true,
-  "description": "Show the latest released version of your Starlight plugin in your documentation.",
+  "description": "Show the latest released version of your package in your documentation.",
   "homepage": "https://github.com/trueberryless-org/starlight-plugin-show-latest-version",
   "bugs": {
     "url": "https://github.com/trueberryless-org/starlight-plugin-show-latest-version/issues"

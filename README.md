@@ -1,6 +1,6 @@
 # `starlight-plugin-show-latest-version`
 
-Show the latest released version of your Starlight plugin in your documentation.
+Show the latest released version of your package in your documentation.
 
 ## Package
 

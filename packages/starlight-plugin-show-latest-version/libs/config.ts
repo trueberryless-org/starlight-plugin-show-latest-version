@@ -14,6 +14,7 @@ const configSchema = z.object({
       size: z.enum(["small", "medium", "large"]).default("medium"),
     })
     .default({}),
+  showInSiteTitle: z.enum(["false", "true", "deferred"]).default("false"),
   regexPattern: z.string().optional(),
 });
 
