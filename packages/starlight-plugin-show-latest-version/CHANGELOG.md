@@ -2,6 +2,8 @@
 
 ## 0.3.0
 
+Special thanks to @HiDeoo for their valuable feedback, which helped shape many of the improvements in this release.
+
 ### Minor Changes
 
 - [#16](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/16) [`3de9964`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/3de9964f4860928c42754c94e8be1c246b1cc674) Thanks [@trueberryless](https://github.com/trueberryless)! - Use [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) in the `SiteTitle.astro` override component if [`showInSiteTitle`](https://starlight-plugin-show-latest-version.trueberryless.org/configuration/#showinsitetitle) is set to `"deferred"`.
