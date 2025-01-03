@@ -1,5 +1,15 @@
 # starlight-plugin-show-latest-version-docs
 
+## 0.4.0
+
+### Minor Changes
+
+- [#23](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/23) [`2be0e67`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/2be0e6776005bb3d3562dcd611ac496263d51e2c) Thanks [@trueberryless](https://github.com/trueberryless)! - Downgrade astro to v5.0.5 because server island respond with 404. Upgrading once [this issue](https://github.com/withastro/astro/issues/12803) is fixed.
+
+### Patch Changes
+
+- [`2b69c46`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/2b69c469001a8fe3ee8bbf5ef901461f060f079f) Thanks [@trueberryless](https://github.com/trueberryless)! - Make own logo for this plugin
+
 ## 0.3.0
 
 ### Minor Changes
