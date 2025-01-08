@@ -1,6 +1,6 @@
 {
   "name": "starlight-plugin-show-latest-version",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Show the latest released version of your package in your documentation.",
   "keywords": [
     "starlight",
