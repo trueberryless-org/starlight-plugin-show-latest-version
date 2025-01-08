@@ -1,5 +1,12 @@
 # starlight-plugin-show-latest-version-docs
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`38e0418`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/38e04186f90a4e575dde53339e290098574a2db4)]:
+  - starlight-plugin-show-latest-version@0.3.1
+
 ## 0.4.0
 
 Thanks [@HiDeoo](https://github.com/HiDeoo) for debuggin the issue [here](https://discord.com/channels/830184174198718474/1324108940652449882).

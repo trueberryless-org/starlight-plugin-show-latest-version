@@ -1,5 +1,11 @@
 # starlight-plugin-show-latest-version
 
+## 0.3.1
+
+### Patch Changes
+
+- [#26](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/26) [`38e0418`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/38e04186f90a4e575dde53339e290098574a2db4) Thanks [@trueberryless](https://github.com/trueberryless)! - Prevents the header title from being translated by automatic translation systems.
+
 ## 0.3.0
 
 Special thanks to [@HiDeoo](https://github.com/HiDeoo) for their valuable feedback, which helped shape many of the improvements in this release.
