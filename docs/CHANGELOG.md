@@ -1,5 +1,14 @@
 # starlight-plugin-show-latest-version-docs
 
+## 0.4.1
+
+### Patch Changes
+
+- [#25](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/25) [`7a3372d`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/7a3372d601fda322488b893e0a1f35c534859b33) Thanks [@trueberryless](https://github.com/trueberryless)! - Update documentation to new Astro 5.1.10 version (fix for Server Islands was released in 5.1.8; see [#12982](https://github.com/withastro/astro/pull/12982))
+
+- Updated dependencies [[`38e0418`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/38e04186f90a4e575dde53339e290098574a2db4)]:
+  - starlight-plugin-show-latest-version@0.3.1
+
 ## 0.4.0
 
 Thanks [@HiDeoo](https://github.com/HiDeoo) for debuggin the issue [here](https://discord.com/channels/830184174198718474/1324108940652449882).
