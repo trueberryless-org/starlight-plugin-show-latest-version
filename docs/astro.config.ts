@@ -23,8 +23,8 @@ export default defineConfig({
         starlightLinksValidator(),
         starlightPluginShowLatestVersion({
           source: {
-            type: "github",
-            slug: "trueberryless-org/starlight-plugin-show-latest-version",
+            type: "npm",
+            slug: "starlight-plugin-show-latest-version",
           },
           showInSiteTitle: "deferred",
         }),

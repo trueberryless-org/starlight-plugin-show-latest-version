@@ -9,16 +9,16 @@ import { Badge } from '@astrojs/starlight/components';
 )}
 {pluginConfig.showInSiteTitle === "deferred" && (
 	<VersionBadge server:defer>
-    <Badge text={"Loading..."} variant="default" size="medium" slot="fallback" />
-  </VersionBadge>
+		<Badge text={"Loading..."} variant="default" size="medium" slot="fallback" />
+	</VersionBadge>
 )}
 
 {(pluginConfig.showInSiteTitle === "true" || pluginConfig.showInSiteTitle === "deferred") && (
-  <style is:global>
-    .title-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-  </style>
+	<style is:global>
+		.title-wrapper {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+	</style>
 )}
