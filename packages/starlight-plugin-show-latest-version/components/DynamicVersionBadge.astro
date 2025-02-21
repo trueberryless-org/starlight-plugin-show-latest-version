@@ -1,0 +1,21 @@
+---
+import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
+import VersionBadge from '../components/VersionBadge.astro';
+---
+
+{pluginConfig.showInSiteTitle === "true" && (
+	<VersionBadge />
+)}
+{pluginConfig.showInSiteTitle === "deferred" && (
+	<VersionBadge server:defer />
+)}
+
+{(pluginConfig.showInSiteTitle === "true" || pluginConfig.showInSiteTitle === "deferred") && (
+  <style is:global>
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  </style>
+)}

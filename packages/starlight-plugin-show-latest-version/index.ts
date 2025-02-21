@@ -23,12 +23,12 @@ export default function starlightPluginShowLatestVersion(
   return {
     name: "starlight-plugin-show-latest-version",
     hooks: {
-      setup: async ({
+      "config:setup"({
         addIntegration,
         updateConfig: updateStarlightConfig,
         config: starlightConfig,
         logger,
-      }) => {
+      }) {
         updateStarlightConfig({
           components: {
             ...starlightConfig.components,

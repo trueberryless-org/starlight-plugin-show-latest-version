@@ -26,7 +26,24 @@ import Version from "starlight-plugin-show-latest-version/components/Version.ast
 
 </Preview>
 
-:::note
+If no version is available it has a default fallback content (`N/A`) which can be customized by [slotting](https://docs.astro.build/en/basics/astro-components/#slots) in the content:
+
+```mdx
+import Version from "starlight-plugin-show-latest-version/components/Version.astro";
+
+<Version>
+  <span slot="fallback">Loading...</span>
+</Version>
+```
+
+<Preview>
+
+<Version>
+  <span slot="fallback">Loading...</span>
+</Version>
+
+</Preview>
+
 You can opt-in to use the [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) directive to delay rendering until the content of the component is available if a [server adapter](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) is configured. This is the recommended approach if your docs do not get rebuilt every time a new version is released. 
 
 ```mdx
@@ -41,7 +58,7 @@ import Version from "starlight-plugin-show-latest-version/components/Version.ast
 
 </Preview>
 
-We also recommend [adding a fallback content](https://docs.astro.build/en/guides/server-islands/#server-island-fallback-content) which will be displayed while the component is loading.
+Of course, you can also add a custom fallback content which will be displayed while the component is loading:
 
 ```mdx
 import Version from "starlight-plugin-show-latest-version/components/Version.astro";
@@ -58,7 +75,6 @@ import Version from "starlight-plugin-show-latest-version/components/Version.ast
 </Version>
 
 </Preview>
-:::
 
 ### VersionBadge
 
@@ -78,7 +94,24 @@ import VersionBadge from "starlight-plugin-show-latest-version/components/Versio
 
 </Preview>
 
-:::note
+If no version is available it has a default fallback content (`N/A`) which can be customized by [slotting](https://docs.astro.build/en/basics/astro-components/#slots) in the content:
+
+```mdx
+import VersionBadge from "starlight-plugin-show-latest-version/components/Version.astro";
+
+<VersionBadge>
+  <Badge text={"Loading..."} variant="default" size="medium" slot="fallback" />
+</VersionBadge>
+```
+
+<Preview>
+
+<VersionBadge>
+  <Badge text={"Loading..."} variant="default" size="medium" slot="fallback" />
+</VersionBadge>
+
+</Preview>
+
 You can opt-in to use the [`server:defer`](https://docs.astro.build/en/reference/directives-reference/#serverdefer) directive to delay rendering until the content of the component is available if a [server adapter](https://docs.astro.build/en/guides/on-demand-rendering/#server-adapters) is configured. This is the recommended approach if your docs do not get rebuilt every time a new version is released. 
 
 ```mdx
@@ -93,21 +126,20 @@ import VersionBadge from "starlight-plugin-show-latest-version/components/Versio
 
 </Preview>
 
-We also recommend [adding a fallback content](https://docs.astro.build/en/guides/server-islands/#server-island-fallback-content) which will be displayed while the component is loading.
+Of course, you can also add a custom fallback content which will be displayed while the component is loading:
 
 ```mdx
 import VersionBadge from "starlight-plugin-show-latest-version/components/Version.astro";
 
 <VersionBadge server:defer>
-  <Badge text={"      "} variant="default" size="medium" slot="fallback" />
+  <Badge text={"Loading..."} variant="default" size="medium" slot="fallback" />
 </VersionBadge>
 ```
 
 <Preview>
 
 <VersionBadge server:defer>
-  <Badge text={"      "} variant="default" size="medium" slot="fallback" />
+  <Badge text={"Loading..."} variant="default" size="medium" slot="fallback" />
 </VersionBadge>
 
 </Preview>
-:::
