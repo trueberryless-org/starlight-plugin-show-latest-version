@@ -6,8 +6,8 @@ const version = await fetchVersion(pluginConfig);
 ---
 
 {version.versionAvailable && (
-  <span>{version.version}</span>
+	<span>{version.version}</span>
 )}
 {!version.versionAvailable && (
-  <span>N/A</span>
+	<span>N/A</span>
 )}

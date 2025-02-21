@@ -1,7 +1,6 @@
 import type { ViteUserConfig } from "astro";
 
 import type { StarlightPluginShowLatestVersionConfig } from "..";
-import type { StarlightPluginShowLatestVersionContext } from "./types";
 
 export function vitePluginStarlightPluginShowLatestVersionConfig(
   config: StarlightPluginShowLatestVersionConfig
@@ -21,7 +20,7 @@ export function vitePluginStarlightPluginShowLatestVersionConfig(
   );
 
   return {
-    name: "vite-plugin-starlight-plugins-docs-components",
+    name: "vite-plugin-starlight-plugin-show-latest-version-config",
     load(id) {
       const moduleId = moduleResolutionMap[id];
       return moduleId ? modules[moduleId] : undefined;

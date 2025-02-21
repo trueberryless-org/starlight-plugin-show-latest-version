@@ -20,6 +20,7 @@
   "type": "module",
   "exports": {
     ".": "./index.ts",
+    "./components/DynamicVersionBadge.astro": "./components/DynamicVersionBadge.astro",
     "./components/Version.astro": "./components/Version.astro",
     "./components/VersionBadge.astro": "./components/VersionBadge.astro",
     "./overrides/SiteTitle.astro": "./overrides/SiteTitle.astro",
@@ -29,15 +30,15 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@astrojs/starlight": "^0.30.3",
+    "@astrojs/starlight": "^0.32.0",
     "@jest/globals": "^29.7.0",
     "@types/jest": "^29.5.14",
-    "astro": "^5.1.1",
+    "astro": "^5.3.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5"
   },
   "peerDependencies": {
-    "@astrojs/starlight": ">=0.30"
+    "@astrojs/starlight": ">=0.32"
   },
   "engines": {
     "node": "^18.17.1 || ^20.3.0 || >=21.0.0"

@@ -9,24 +9,24 @@ const sourceUrl = releasePageUrls[pluginConfig.source.type](pluginConfig.source.
 ---
 
 {version.versionAvailable && (
-  <starlight-plugin-show-latest-version>
-    <a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
-      <Badge text={version.version} variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} id='starlight-plugin-show-latest-version-badge'/>
-    </a>
-  </starlight-plugin-show-latest-version>
+	<starlight-plugin-show-latest-version>
+		<a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
+			<Badge text={version.version} variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} id='starlight-plugin-show-latest-version-badge'/>
+		</a>
+	</starlight-plugin-show-latest-version>
 )}
 {!version.versionAvailable && (
-  <starlight-plugin-show-latest-version>
-    <a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
-      <Badge text="N/A" variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} id='starlight-plugin-show-latest-version-badge'/>
-    </a>
-  </starlight-plugin-show-latest-version>
+		<starlight-plugin-show-latest-version>
+			<a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
+				<Badge text="N/A" variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} id='starlight-plugin-show-latest-version-badge'/>
+			</a>
+		</starlight-plugin-show-latest-version>
 )}
 
 <style>
-  #starlight-plugin-show-latest-version-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
+	#starlight-plugin-show-latest-version-link {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+	}
 </style>

@@ -1,14 +1,12 @@
-import type {
-  StarlightPlugin,
-  StarlightUserConfig,
-} from "@astrojs/starlight/types";
-import type { AstroIntegrationLogger } from "astro";
+import type { StarlightPlugin } from "@astrojs/starlight/types";
+
 import {
   type StarlightPluginShowLatestVersionConfig,
   validateConfig,
   type StarlightPluginShowLatestVersionUserConfig,
 } from "./libs/config";
 import { vitePluginStarlightPluginShowLatestVersionConfig } from "./libs/vite";
+import { overrideStarlightComponent } from "./libs/starlight";
 
 export type {
   StarlightPluginShowLatestVersionConfig,
@@ -23,12 +21,12 @@ export default function starlightPluginShowLatestVersion(
   return {
     name: "starlight-plugin-show-latest-version",
     hooks: {
-      setup: async ({
+      "config:setup"({
         addIntegration,
         updateConfig: updateStarlightConfig,
         config: starlightConfig,
         logger,
-      }) => {
+      }) {
         updateStarlightConfig({
           components: {
             ...starlightConfig.components,
@@ -36,7 +34,8 @@ export default function starlightPluginShowLatestVersion(
               ? overrideStarlightComponent(
                   starlightConfig.components,
                   logger,
-                  "SiteTitle"
+                  "SiteTitle",
+                  "DynamicVersionBadge"
                 )
               : {}),
           },
@@ -58,26 +57,5 @@ export default function starlightPluginShowLatestVersion(
         });
       },
     },
-  };
-}
-
-function overrideStarlightComponent(
-  components: StarlightUserConfig["components"],
-  logger: AstroIntegrationLogger,
-  component: keyof NonNullable<StarlightUserConfig["components"]>
-) {
-  if (components?.[component]) {
-    logger.warn(
-      `It looks like you already have a \`${component}\` component override in your Starlight configuration.`
-    );
-    logger.warn(
-      `To use \`starlight-plugin-show-latest-version\`, either remove your override or update it to render the content from \`starlight-plugin-show-latest-version/overrides/${component}.astro\`.`
-    );
-
-    return {};
-  }
-
-  return {
-    [component]: `starlight-plugin-show-latest-version/overrides/${component}.astro`,
   };
 }
