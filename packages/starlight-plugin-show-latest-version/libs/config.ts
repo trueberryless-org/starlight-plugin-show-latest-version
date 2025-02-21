@@ -27,7 +27,7 @@ export function validateConfig(
     const errors = config.error.flatten();
 
     throw new AstroError(
-      `Invalid @trueberryless-org/starlight-plugins-docs-components configuration:
+      `Invalid @trueberryless-org/starlight-plugin-show-latest-version configuration:
       
       ${errors.formErrors.map((formError) => ` - ${formError}`).join("\n")}
       ${Object.entries(errors.fieldErrors)
@@ -37,7 +37,7 @@ export function validateConfig(
         )
         .join("\n")}
         `,
-      `See the error report above for more informations.\n\nIf you believe this is a bug, please file an issue at https://github.com/trueberryless-org/starlight-plugins-docs-components/issues/new`
+      `See the error report above for more informations.\n\nIf you believe this is a bug, please file an issue at https://github.com/trueberryless-org/starlight-plugin-show-latest-version/issues/new`
     );
   }
 
