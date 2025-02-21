@@ -1,5 +1,17 @@
 # starlight-plugin-show-latest-version
 
+## 0.4.0
+
+### Minor Changes
+
+- [#29](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/29) [`3656c8f`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/3656c8f9b35ca3cf4cade1791098301020bc117c) Thanks [@trueberryless](https://github.com/trueberryless)! - ⚠️ **BREAKING CHANGE:** The minimum supported version of Starlight is now version `0.32.0`.
+
+  Please use the `@astrojs/upgrade` command to upgrade your project:
+
+  ```sh
+  npx @astrojs/upgrade
+  ```
+
 ## 0.3.1
 
 ### Patch Changes
