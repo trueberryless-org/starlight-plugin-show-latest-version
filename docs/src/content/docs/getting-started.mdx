@@ -74,3 +74,21 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 </Steps>
 
 The Starlight Plugin Show Latest Version plugin behavior can be tweaked using various [configuration options](/configuration).
+
+## Component overrides
+
+The Starlight Plugin Show Latest Version plugin uses a Starlight [component override](https://starlight.astro.build/guides/overriding-components/) for the [`SiteTitle`](https://starlight.astro.build/reference/overrides/#sitetitle) component to add the [`VersionBadge`](/components#versionbadge) to the site title.
+
+If you have a custom `SiteTitle` component override in your Starlight project, you will need to manually render the `DynamicVersionBadge` component from the Starlight Plugin Show Latest Version plugin in your custom component:
+
+```diff lang="astro"
+---
+// src/components/overrides/SiteTitle.astro
+import Default from '@astrojs/starlight/components/SiteTitle.astro'
++import DynamicVersionBadge from 'starlight-plugin-show-latest-version/components/DynamicVersionBadge.astro'
+---
+
+<Default><slot /></Default>
+<p>Custom content in the SiteTitle override</p>
++<DynamicVersionBadge />
+```
