@@ -1,10 +1,44 @@
 ---
+import type { StarlightPluginShowLatestVersionContext } from '../libs/types';
 import { Badge } from '@astrojs/starlight/components';
 import fetchVersion from '../libs/utils';
 import { releasePageUrls } from "../libs/urlBuilder";
 import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
 
-const version = await fetchVersion(pluginConfig);
+interface Props {
+  useCache?: boolean;
+}
+
+const { useCache = false } = Astro.props;
+
+let version: StarlightPluginShowLatestVersionContext = { versionAvailable: false };
+if (useCache) {
+	// This setup caches the result in Astro.session for 1 hour.
+	// Call `clearVersionCache` to manually invalidate the cache. 🚀
+	const CACHE_EXPIRATION_MS = 60 * 60 * 1000;
+
+	const cacheKey = `versionCache:${pluginConfig.source.type}:${pluginConfig.source.slug}`;
+	const cachedData = await Astro.session?.get(cacheKey);
+
+	if (cachedData) {
+		const { timestamp, context } = JSON.parse(cachedData);
+		if (Date.now() - timestamp < CACHE_EXPIRATION_MS) {
+			version = context; 
+		}
+		else {
+			version = await fetchVersion(pluginConfig);
+			await Astro.session?.set(cacheKey, JSON.stringify({ timestamp: Date.now(), context: version }));
+		}
+	}
+	else {
+		version = await fetchVersion(pluginConfig);
+		await Astro.session?.set(cacheKey, JSON.stringify({ timestamp: Date.now(), context: version }));
+	}
+}
+else {
+	version = await fetchVersion(pluginConfig);
+}
+
 const sourceUrl = releasePageUrls[pluginConfig.source.type](pluginConfig.source.slug);
 ---
 

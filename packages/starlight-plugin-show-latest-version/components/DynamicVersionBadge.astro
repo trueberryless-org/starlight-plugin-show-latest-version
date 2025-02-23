@@ -8,7 +8,7 @@ import { Badge } from '@astrojs/starlight/components';
 	<VersionBadge />
 )}
 {pluginConfig.showInSiteTitle === "deferred" && (
-	<VersionBadge server:defer>
+	<VersionBadge server:defer useCache={true}>
 		<Badge text={"Loading..."} variant="default" size="medium" slot="fallback" />
 	</VersionBadge>
 )}

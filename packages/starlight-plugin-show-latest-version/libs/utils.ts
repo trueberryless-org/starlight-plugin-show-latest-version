@@ -40,7 +40,7 @@ export default async function fetchVersion(
     const prefix = prefixMatch ? prefixMatch[1] : undefined;
     const hasVPrefix = tagName.startsWith("v") || tagName.includes("@v");
 
-    return {
+    const context: StarlightPluginShowLatestVersionContext = {
       versionAvailable: true,
       version,
       versionWithoutPrefix,
@@ -53,6 +53,8 @@ export default async function fetchVersion(
       hasVPrefix,
       isStableVersion: !isPrereleaseVersion,
     };
+
+    return context;
   } catch (error) {
     console.error(error);
     return { versionAvailable: false }; // Fallback: no version available
