@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [`9bdad60`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/9bdad60c0f257bb5889c5ca9c0700d2e5c9dcc9b) Thanks [@trueberryless](https://github.com/trueberryless)! - ⚠️ **BREAKING CHANGE:** If you set [`showInSiteTitle`](https://starlight-plugin-show-latest-version.trueberryless.org/configuration#showinsitetitle) to `"deferred"`, you will have to enable [experimental sessions](https://docs.astro.build/en/reference/experimental-flags/sessions/) because the version will be cached for an hour.
+- [#32](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/pull/32) [`9bdad60`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/9bdad60c0f257bb5889c5ca9c0700d2e5c9dcc9b) Thanks [@trueberryless](https://github.com/trueberryless)! - ⚠️ **BREAKING CHANGE:** If you set [`showInSiteTitle`](https://starlight-plugin-show-latest-version.trueberryless.org/configuration#showinsitetitle) to `"deferred"`, you will have to enable [experimental sessions](https://docs.astro.build/en/reference/experimental-flags/sessions/) because the version will be cached for an hour.
 
 ## 0.4.0
 
