@@ -1,5 +1,12 @@
 # starlight-plugin-show-latest-version-docs
 
+## 0.4.3
+
+### Patch Changes
+
+- Updated dependencies [[`9bdad60`](https://github.com/trueberryless-org/starlight-plugin-show-latest-version/commit/9bdad60c0f257bb5889c5ca9c0700d2e5c9dcc9b)]:
+  - starlight-plugin-show-latest-version@0.5.0
+
 ## 0.4.2
 
 ### Patch Changes
