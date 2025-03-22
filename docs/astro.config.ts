@@ -4,7 +4,7 @@ import starlightLinksValidator from "starlight-links-validator";
 import starlightPluginShowLatestVersion from "starlight-plugin-show-latest-version";
 import starlightPluginsDocsComponents from "@trueberryless-org/starlight-plugins-docs-components";
 
-import node from "@astrojs/node";
+import netlify from "@astrojs/netlify";
 
 export default defineConfig({
   integrations: [
@@ -56,10 +56,8 @@ export default defineConfig({
       },
     }),
   ],
-  adapter: node({
-    mode: "standalone",
-  }),
   experimental: {
     session: true,
   },
+  adapter: netlify(),
 });
