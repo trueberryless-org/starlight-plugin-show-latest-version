@@ -2,6 +2,8 @@
 
 Show the latest released version of your package in your documentation.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/86ca2a59-dc13-478c-8f4b-56660b3e476f/deploy-status)](https://app.netlify.com/sites/starlight-plugin-show-latest-version/deploys)
+
 ## Package
 
 If you are looking for the Starlight plugin package, you can find it in the [`packages/starlight-plugin-show-latest-version/`](/packages/starlight-plugin-show-latest-version/) directory.
