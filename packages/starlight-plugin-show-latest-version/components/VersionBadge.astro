@@ -1,9 +1,9 @@
 ---
-import type { StarlightPluginShowLatestVersionContext } from '../libs/types';
-import { Badge } from '@astrojs/starlight/components';
-import fetchVersion from '../libs/utils';
+import type { StarlightPluginShowLatestVersionContext } from "../libs/types";
+import { Badge } from "@astrojs/starlight/components";
+import fetchVersion from "../libs/utils";
 import { releasePageUrls } from "../libs/urlBuilder";
-import pluginConfig from 'virtual:starlight-plugin-show-latest-version-config';
+import pluginConfig from "virtual:starlight-plugin-show-latest-version-config";
 
 interface Props {
   useCache?: boolean;
@@ -11,56 +11,77 @@ interface Props {
 
 const { useCache = false } = Astro.props;
 
-let version: StarlightPluginShowLatestVersionContext = { versionAvailable: false };
+let version: StarlightPluginShowLatestVersionContext = {
+  versionAvailable: false,
+};
 if (useCache) {
-	// This setup caches the result in Astro.session for 1 hour.
-	// Call `clearVersionCache` to manually invalidate the cache. 🚀
-	const CACHE_EXPIRATION_MS = 60 * 60 * 1000;
+  // This setup caches the result in Astro.session for 1 hour.
+  // Call `clearVersionCache` to manually invalidate the cache. 🚀
+  const CACHE_EXPIRATION_MS = 60 * 60 * 1000;
 
-	const cacheKey = `versionCache:${pluginConfig.source.type}:${pluginConfig.source.slug}`;
-	const cachedData = await Astro.session?.get(cacheKey);
+  const cacheKey = `versionCache:${pluginConfig.source.type}:${pluginConfig.source.slug}`;
+  const cachedData = await Astro.session?.get(cacheKey);
 
-	if (cachedData) {
-		const { timestamp, context } = JSON.parse(cachedData);
-		if (Date.now() - timestamp < CACHE_EXPIRATION_MS) {
-			version = context; 
-		}
-		else {
-			version = await fetchVersion(pluginConfig);
-			await Astro.session?.set(cacheKey, JSON.stringify({ timestamp: Date.now(), context: version }));
-		}
-	}
-	else {
-		version = await fetchVersion(pluginConfig);
-		await Astro.session?.set(cacheKey, JSON.stringify({ timestamp: Date.now(), context: version }));
-	}
+  if (cachedData) {
+    const { timestamp, context } = JSON.parse(cachedData);
+    if (Date.now() - timestamp < CACHE_EXPIRATION_MS) {
+      version = context;
+    } else {
+      version = await fetchVersion(pluginConfig);
+      await Astro.session?.set(
+        cacheKey,
+        JSON.stringify({ timestamp: Date.now(), context: version })
+      );
+    }
+  } else {
+    version = await fetchVersion(pluginConfig);
+    await Astro.session?.set(
+      cacheKey,
+      JSON.stringify({ timestamp: Date.now(), context: version })
+    );
+  }
+} else {
+  version = await fetchVersion(pluginConfig);
 }
-else {
-	version = await fetchVersion(pluginConfig);
-}
 
-const sourceUrl = releasePageUrls[pluginConfig.source.type](pluginConfig.source.slug);
+const sourceUrl = releasePageUrls[pluginConfig.source.type](
+  pluginConfig.source.slug
+);
 ---
 
-{version.versionAvailable && (
-	<starlight-plugin-show-latest-version>
-		<a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
-			<Badge text={version.version} variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} id='starlight-plugin-show-latest-version-badge'/>
-		</a>
-	</starlight-plugin-show-latest-version>
-)}
-{!version.versionAvailable && (
-		<starlight-plugin-show-latest-version>
-			<a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
-				<Badge text="N/A" variant={pluginConfig.badge.variant} size={pluginConfig.badge.size} id='starlight-plugin-show-latest-version-badge'/>
-			</a>
-		</starlight-plugin-show-latest-version>
-)}
+{
+  version.versionAvailable && (
+    <starlight-plugin-show-latest-version>
+      <a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
+        <Badge
+          text={version.version}
+          variant={pluginConfig.badge.variant}
+          size={pluginConfig.badge.size}
+          id="starlight-plugin-show-latest-version-badge"
+        />
+      </a>
+    </starlight-plugin-show-latest-version>
+  )
+}
+{
+  !version.versionAvailable && (
+    <starlight-plugin-show-latest-version>
+      <a href={sourceUrl} id="starlight-plugin-show-latest-version-link">
+        <Badge
+          text="N/A"
+          variant={pluginConfig.badge.variant}
+          size={pluginConfig.badge.size}
+          id="starlight-plugin-show-latest-version-badge"
+        />
+      </a>
+    </starlight-plugin-show-latest-version>
+  )
+}
 
 <style>
-	#starlight-plugin-show-latest-version-link {
-		display: flex;
-		align-items: center;
-		text-decoration: none;
-	}
+  #starlight-plugin-show-latest-version-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
 </style>

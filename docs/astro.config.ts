@@ -1,10 +1,9 @@
+import netlify from "@astrojs/netlify";
 import starlight from "@astrojs/starlight";
+import starlightPluginsDocsComponents from "@trueberryless-org/starlight-plugins-docs-components";
 import { defineConfig } from "astro/config";
 import starlightLinksValidator from "starlight-links-validator";
 import starlightPluginShowLatestVersion from "starlight-plugin-show-latest-version";
-import starlightPluginsDocsComponents from "@trueberryless-org/starlight-plugins-docs-components";
-
-import netlify from "@astrojs/netlify";
 
 export default defineConfig({
   integrations: [
@@ -50,10 +49,13 @@ export default defineConfig({
           link: "/demo",
         },
       ],
-      social: {
-        github:
-          "https://github.com/trueberryless-org/starlight-plugin-show-latest-version",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/trueberryless-org/starlight-plugin-show-latest-version",
+        },
+      ],
     }),
   ],
   experimental: {
