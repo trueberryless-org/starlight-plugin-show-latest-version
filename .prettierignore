@@ -42,3 +42,6 @@ Thumbs.db
 
 # Changelog
 .changeset
+
+# Reporting error but works
+/packages/starlight-plugin-show-latest-version/components/DynamicVersionBadge.astro
