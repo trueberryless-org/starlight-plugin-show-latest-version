@@ -2,11 +2,11 @@ import type { StarlightPlugin } from "@astrojs/starlight/types";
 
 import {
   type StarlightPluginShowLatestVersionConfig,
-  validateConfig,
   type StarlightPluginShowLatestVersionUserConfig,
+  validateConfig,
 } from "./libs/config";
-import { vitePluginStarlightPluginShowLatestVersionConfig } from "./libs/vite";
 import { overrideStarlightComponent } from "./libs/starlight";
+import { vitePluginStarlightPluginShowLatestVersionConfig } from "./libs/vite";
 
 export type {
   StarlightPluginShowLatestVersionConfig,
