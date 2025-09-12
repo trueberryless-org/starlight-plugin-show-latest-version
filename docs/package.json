@@ -26,13 +26,13 @@
     "start": "astro dev"
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.2.5",
-    "@astrojs/starlight": "^0.33.0",
-    "@trueberryless-org/starlight-plugins-docs-components": "^0.4.1",
-    "astro": "^5.6.1",
-    "sharp": "^0.33.5",
+    "@astrojs/netlify": "^6.5.10",
+    "@astrojs/starlight": "^0.35.2",
+    "@trueberryless-org/starlight-plugins-docs-components": "^0.4.2",
+    "astro": "^5.13.7",
+    "sharp": "^0.34.3",
     "starlight-contributor-list": "^0.3.0",
-    "starlight-links-validator": "^0.14.3",
+    "starlight-links-validator": "^0.17.2",
     "starlight-plugin-show-latest-version": "workspace:*"
   },
   "packageManager": "pnpm@10.10.0",
