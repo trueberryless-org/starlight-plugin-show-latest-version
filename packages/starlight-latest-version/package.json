@@ -34,7 +34,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@astrojs/starlight": "0.41.6",
+    "@astrojs/starlight": "0.41.7",
     "@jest/globals": "^30.4.1",
     "@types/jest": "^30.0.0",
     "astro": "^7.1.6",
